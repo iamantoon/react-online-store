@@ -1,0 +1,93 @@
+.products-title {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    margin: 45px 0;
+    color: #BB2649;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 25px;
+    row-gap: 25px;
+    justify-content: center;
+    margin: 30px 0 70px;
+}
+.product-item {
+    max-width: 380px;
+    border: 1px solid rgb(212, 196, 199);
+    border-radius: 1px;
+    cursor: pointer;
+}
+.product-item__img {
+    width: 380px;
+    height: 250px;
+    object-fit: contain;
+    border-bottom: 1px solid rgb(212, 196, 199);
+}
+.product-item__title {
+    font-size: 17px;
+    color: #252525;
+    padding: 10px 10px 0 10px;
+}
+.product-item__price {
+    font-size: 16px;
+    color: #333;
+    padding: 5px 10px;
+}
+.product-item__sale {
+    font-size: 16px;
+    color: #333;
+    margin-left: 15px;
+    text-decoration: line-through;
+}
+.product-item__description {
+    display: flex;
+    justify-content: space-between;
+}
+.product-item__description button {
+    margin-right: 10px;
+}
+
+@media (min-width: 390px) and (max-width: 620px) {
+    .products {
+        grid-template-columns: auto auto;
+        column-gap: 20px;
+    }
+    .product-item__description {
+        flex-direction: column;
+        justify-content: unset;
+    }
+    .product-item__description button {
+        margin: 10px 0;
+    }
+    .product-item__price,
+    .product-item__title {
+        text-align: center;
+    }
+    .product-item {
+        max-width: 300px;
+        border: 1px solid rgb(212, 196, 199);
+        border-radius: 1px;
+        cursor: pointer;
+    }
+    .product-item__img {
+        width: 300px;
+        height: 180px;
+        object-fit: contain;
+        border-bottom: 1px solid rgb(212, 196, 199);
+    }
+}
+@media (max-width: 390px) {
+    .products {
+        grid-template-columns: auto;
+        row-gap: 15px;
+    }
+    .product-item__description {
+        flex-direction: column;
+        justify-content: unset;
+    }
+    .product-item__description button {
+        margin: 10px 0;
+    }
+}
