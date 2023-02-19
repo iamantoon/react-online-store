@@ -140,3 +140,10 @@
 .payment-btn:active {
     transform: translateY(2px);
 }
+
+@media (min-width: 380px) and (max-width: 820px) {
+    .modal-content__input {
+        align-items: center;
+        margin: 0 auto;
+    }
+}
