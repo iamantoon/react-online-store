@@ -95,4 +95,13 @@
     .product-item__description button {
         margin: 10px 0;
     }
+    .icon__cart:active {
+        fill: #12a34e;
+    }
+    .product-item:active {
+        border: 1px solid #12a34e;
+    }
+    .product-item__img{
+        border-bottom: 1px solid #12a34e;
+    }
 }
