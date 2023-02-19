@@ -48,7 +48,12 @@
 .product-item__description button {
     margin-right: 10px;
 }
-
+.icon__cart {
+    fill: #333;
+}
+.icon__cart:active {
+    fill: #12a34e;
+}
 @media (min-width: 390px) and (max-width: 620px) {
     .products {
         grid-template-columns: auto auto;
