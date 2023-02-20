@@ -76,10 +76,10 @@
     display: none;
 }
 .close-button {
-    position: absolute;
+    position: fixed;
     z-index: 2;
 
-    top: 33px;
+    top: 34.5px;
     right: 20px;
 }
 @media (max-width: 440px) {
