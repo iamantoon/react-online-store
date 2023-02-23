@@ -1,8 +1,10 @@
 import {NavLink} from 'react-router-dom';
+
 import "./style.css";
 import calendar from './../../images/icons/calendar.svg';
 
-const News = ({title, img, date}) => {
+const News = ({title, img, date, id}) => {
+
     return (
         <div className="news-item">
             <img src={img} alt={title} />
@@ -11,7 +13,7 @@ const News = ({title, img, date}) => {
                 <img src={calendar} alt="calendar" />
                 <p className="news-item__date">{date}</p>
             </div> 
-            <NavLink to="/" className="news-item__link">Click for details</NavLink>   
+            <NavLink to={`/news/${id}`} className="news-item__link">Click for details</NavLink>   
         </div>
     );
 }

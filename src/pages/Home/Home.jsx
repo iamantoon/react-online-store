@@ -77,7 +77,7 @@ const Home = ({addProductToCart}) => {
                     <section className="news">
                         {
                             news.map((item) =>
-                                <News key={item.id} title={item.title} img={item.img} date={item.date} />
+                                <News key={item.id} id={item.id} title={item.title} img={item.img} date={item.date} />
                             )
                         }
                     </section>

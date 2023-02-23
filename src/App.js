@@ -6,6 +6,7 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import Cart from './components/Cart/Cart';
 import Product from './pages/Product/Product';
+import NewsPage from './pages/NewsPage/NewsPage';
 
 import Career from './pages/Career/Career';
 import Contacts from './pages/Contacts/Contacts';
@@ -13,6 +14,8 @@ import Privacy from './pages/Privacy/Privacy';
 
 import Nav from './components/Nav/Nav';
 import Footer from './components/footer/Footer';
+
+import ScrollToTop from './utils/scrollToTop.js';
 
 import allProducts from './helpers/allProducts';
 
@@ -56,6 +59,7 @@ function App() {
     return (        
         <div className="App">
             <Router>
+                <ScrollToTop />
                 <Nav total={productCartArray.length} />
                 <Routes>  
                     <Route path="/" element={<Home addProductToCart={addProductToCart} />} />
@@ -70,6 +74,9 @@ function App() {
                         sortProducts={sortProducts}
                         searchedAndSortedProducts={searchedAndSortedProducts}
                     />} />
+
+                    <Route path="/news/:id" element={<NewsPage />} />
+
                     <Route path="/about" element={<About />} />
                     <Route path="/cart" element={<Cart productCartArray={productCartArray} setProductCartArray={setProductCartArray}/>} /> 
                     <Route path="/product/:id" element={<Product addProductToCart={addProductToCart} />} />

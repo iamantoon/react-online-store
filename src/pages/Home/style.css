@@ -59,8 +59,7 @@
 .section-sale__products {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    column-gap: 25px;
-    row-gap: 25px;
+    gap: 25px;
     justify-content: center;
     margin: 20px 0 70px;
 
@@ -110,4 +109,37 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     column-gap: 10px;
+}
+
+/* Adaptivness */
+
+@media (max-width: 1010px) {
+    .section-header {
+        display: flex;
+        flex-direction: column;
+    }
+    .section-header__img img {
+        display: none;
+    }
+    .section-sale__title {
+        font-size: 30px;
+    }
+    .section-sale__products {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 15px;
+    }
+    .services__title {
+        width: unset;
+    }
+    .services-items {
+        grid-template-columns: repeat(2, auto);
+        column-gap: 30px;
+    }
+    .news {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    
 }

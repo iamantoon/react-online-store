@@ -55,3 +55,17 @@
     background-color: #f6f6f6;
     color: #BB2649;
 }
+@media (max-width: 1010px) {
+    .newsletter-container {
+        width: unset;
+        margin: 20px auto 10px;
+    }
+    .newsletter__input {
+        width: 200px;
+        height: 45px;
+    }
+    .newsletter__button {
+        height: 45px;
+        
+    }
+}
