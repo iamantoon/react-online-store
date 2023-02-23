@@ -13,7 +13,7 @@ const News = ({title, img, date, id}) => {
                 <img src={calendar} alt="calendar" />
                 <p className="news-item__date">{date}</p>
             </div> 
-            <NavLink to={`/news/${id}`} className="news-item__link">Click for details</NavLink>   
+            <NavLink to={`/news/${id}`} className="news-item__link" style={{textDecoration: 'underline'}}>Click for details</NavLink>   
         </div>
     );
 }
