@@ -2,6 +2,7 @@ import {useState, useMemo} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import Home from './pages/Home/Home';
+import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import Cart from './components/Cart/Cart';
 import Product from './pages/Product/Product';
@@ -56,9 +57,9 @@ function App() {
         <div className="App">
             <Router>
                 <Nav total={productCartArray.length} />
-
-                <Routes>
-                    <Route path="/" element={<Home 
+                <Routes>  
+                    <Route path="/" element={<Home addProductToCart={addProductToCart} />} />
+                    <Route path="/products" element={<Products 
                         productCartArray={productCartArray}
                         setProductCartArray={setProductCartArray} 
                         addProductToCart={addProductToCart} 

@@ -103,6 +103,8 @@ const allProducts = [
         color: 'rgb(131, 132, 134)',
         count: 1,
         price: 1200,
+        sale: 1000,
+        saleColor: 'rgb(187, 38, 73)',
         totalPrice: 1200
     },
     {

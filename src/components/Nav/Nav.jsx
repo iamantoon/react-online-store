@@ -24,11 +24,14 @@ const Nav = ({total}) => {
             <div className="nav-container">
                 <nav className={openButton ? "nav-nav open" : "nav-nav"}>
                     <div className="nav-logo">
-                        <h1 className="nav-logo__title">Apple</h1>
+                        <h1 className="nav-logo__title">The Apple Hub</h1>
                     </div>
                     <ul className="nav-list">
                         <li className="nav-list__item">
                             <NavLink to="/" className="nav-list__link" onClick={closeNav}>Home</NavLink>
+                        </li>
+                        <li className="nav-list__item">
+                            <NavLink to="/products" className="nav-list__link" onClick={closeNav}>Products</NavLink>
                         </li>
                         <li className="nav-list__item">
                             <NavLink to="/about" className="nav-list__link" onClick={closeNav}>About</NavLink>
