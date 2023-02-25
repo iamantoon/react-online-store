@@ -26,6 +26,12 @@
     font-size: 19px;
     margin-top: 10px;
 }
+.comments {
+    font-size: 45px;
+    font-weight: 600;
+    color: #BB2649;
+    text-align: center;
+}
 @media (max-width: 1253px) {
     .section-news__img img {
         width: 300px;
