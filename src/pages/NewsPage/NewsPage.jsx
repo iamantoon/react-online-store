@@ -35,8 +35,7 @@ const NewsPage = () => {
                         <img src={news.img} alt="Product" />
                         <img src={news.img2} alt="Product" />
                         <img src={news.img3} alt="Product" />
-                    </div>
-                    
+                    </div>              
                     <p className="section-news__description">{news.description}</p>
                     <p className="section-news__details">{news.details}</p>
                     <p className="section-news__date">{news.date}</p>
@@ -47,9 +46,9 @@ const NewsPage = () => {
                 }
                 {isCommentsLoading 
                     ? <div style={{display: 'flex', justifyContent: 'center', marginBottom: 15}}><Loader /></div>
-                    : comments.map((comment) => {
-                        return <Comments key={comment.id} name={comment.name} body={comment.body} />
-                    })
+                    : comments.map((comment) => 
+                        <Comments key={comment.id} name={comment.name} body={comment.body} />
+                    )
                 }
             </div>
         </section>

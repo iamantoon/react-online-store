@@ -1,8 +1,10 @@
 .services-item {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     row-gap: 10px;
-
+    height: 300px;
+    
     color: #262626;
 }
 .services-item__title {

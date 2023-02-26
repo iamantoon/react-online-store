@@ -86,17 +86,16 @@ const Career = () => {
                     <div className="section-result">
                         {vacancyError && <h1>{vacancyError}</h1>}
                         {isVacanciesLoading 
-                        ? <div style={{display: 'flex', justifyContent: 'center', marginBottom: 15}}><Loader /></div>
-                        : vacancies.map((vacancy) => {
-                            return <Vacancy key={vacancy.id} id={vacancy.id} title={vacancy.title} description={vacancy.body} />
-                        })
+                            ? <div style={{display: 'flex', justifyContent: 'center', marginBottom: 15}}><Loader /></div>
+                            : vacancies.map((vacancy) => {
+                                return <Vacancy key={vacancy.id} id={vacancy.id} title={vacancy.title} description={vacancy.body} />
+                            })
                         }
                         <div className="page__wrapper">
                             {pagesArray.map((p) =>
                                 <span onClick={() => changePage(p)} key={p} className={page === p ? 'page__current page' : 'page'}>{p}</span>
                             )}
                         </div>
-                    
                     </div>
                 </div>
             </div>
