@@ -1,4 +1,6 @@
 import {NavLink} from 'react-router-dom';
+import ukraine from "./../../images/icons/ukraine.svg";
+import usa from "./../../images/icons/unitedstates.svg";
 
 const Product = ({img, title, price, id, sale, saleColor, addProductToCart}) => {
 
@@ -24,11 +26,17 @@ const Product = ({img, title, price, id, sale, saleColor, addProductToCart}) => 
                     {sale 
                     ?   <div>
                             <h4 className="product-item__title">{title}</h4>
-                            <h5 style={priceColor} className="product-item__price">{price} $ <span className="product-item__sale">  {sale} $</span></h5>
+                            <p style={priceColor} className="product-item__price">
+                                <img src={usa} alt="usd" />
+                                {price} $ <span className="product-item__sale">  {sale} $</span>  
+                            </p>
                         </div>
                     :   <div>
                             <h4 className="product-item__title">{title}</h4>
-                            <h5 className="product-item__price">{price} $</h5>
+                            <p className="product-item__price">
+                                <img src={usa} alt="usd" />
+                                {price} $
+                            </p>
                         </div>
                     }
                     <button onClick={() => addProductToCart(id)}>
@@ -41,5 +49,5 @@ const Product = ({img, title, price, id, sale, saleColor, addProductToCart}) => 
         </>
     );
 }
- 
+
 export default Product;

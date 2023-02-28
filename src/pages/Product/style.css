@@ -29,6 +29,9 @@
     margin: 15px 0 5px;
 }
 .product-section__price {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
     font-size: 20px;
     font-weight: 500;
     margin: 15px 0 5px;

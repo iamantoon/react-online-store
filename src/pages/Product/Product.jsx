@@ -10,11 +10,14 @@ import googlepay from './../../images/icons/payment-icons/GooglePay.svg';
 import paypal from './../../images/icons/payment-icons/PayPal.svg';
 import amazonpay from './../../images/icons/payment-icons/AmazonPay.svg';
 
+import usa from './../../images/icons/unitedstates.svg';
+import ukraine from './../../images/icons/ukraine.svg';
+
 import './style.css';
 
 import allProducts from './../../helpers/allProducts';
 
-const Product = ({addProductToCart}) => {
+const Product = ({addProductToCart, myUkrainianArray}) => {
 
     let {id} = useParams();
     const product = allProducts[id];
@@ -36,7 +39,12 @@ const Product = ({addProductToCart}) => {
                     </div>
                     <div className="product-section__description">
                         <h2 className="product-section__title">{product.title}</h2>
-                        <h3 className="product-section__price">{product.price} $</h3>
+                        <h3 className="product-section__price">
+                            <img src={usa} alt="usd" /> {product.price} $
+                        </h3>
+                        <h3 className="product-section__price">
+                            <img src={ukraine} alt="uah" /> {myUkrainianArray[id]} UAH
+                        </h3>
                         <p style={textColor} className="product-section__details">{product.description}</p>
                         <div className="product-section__button">
                             <button onClick={() => addProductToCart(id)} className="add-to-cart-button">Add to cart</button>

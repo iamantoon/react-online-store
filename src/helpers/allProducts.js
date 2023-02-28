@@ -1,6 +1,7 @@
 import iphone12pro from './../images/products/apple_iphone_12_pro.jpg';
 import iphone13pro from './../images/products/iphone13pro.jpg';
 import iphone14Pro from './../images/products/iphone-14-pro.png';
+import iphone14 from './../images/products/try14.jpg';
 
 import imac1 from './../images/products/imac1.jpg';
 import imac2 from './../images/products/imac2.jpg';
@@ -29,7 +30,8 @@ const allProducts = [
         price: 1100,
         sale: 1200,
         saleColor: 'rgb(187, 38, 73)',
-        totalPrice: 1100 
+        totalPrice: 1100,
+        newItem: false,
     },
     {
         id: 1,
@@ -39,17 +41,19 @@ const allProducts = [
         color: 'rgb(94, 147, 196)',
         count: 1,
         price: 1400,
-        totalPrice: 1400
+        totalPrice: 1400,
+        newItem: false
     },
     {
         id: 2,
-        img: iphone14Pro,
+        img: iphone14,
         title: 'Apple iPhone 14 Pro Max 512GB Deep Purple',
         description: 'A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip. Introducing Dynamic Island, a truly Apple innovation that’s hardware and software and something in between. It bubbles up music, FaceTime and so much more — all without taking you away from what you’re doing',
         color: 'rgb(76, 0, 153)',
         count: 1,
         price: 1800,
-        totalPrice: 1800
+        totalPrice: 1800,
+        newItem: true
     },
     {
         id: 3,
@@ -59,7 +63,8 @@ const allProducts = [
         color: 'rgb(80, 191, 198)',
         count: 1,
         price: 2000,
-        totalPrice: 2000
+        totalPrice: 2000,
+        newItem: true
     },
     {
         id: 4,
@@ -71,7 +76,8 @@ const allProducts = [
         price: 1900,
         sale: 2000,
         saleColor: 'rgb(187, 38, 73)',
-        totalPrice: 1900
+        totalPrice: 1900,
+        newItem: false
     },
     {
         id: 5,
@@ -81,7 +87,8 @@ const allProducts = [
         color: 'rgb(242, 167, 50)',
         count: 1,
         price: 2000,
-        totalPrice: 2000
+        totalPrice: 2000,
+        newItem: false
     },
     {
         id: 6,
@@ -93,7 +100,8 @@ const allProducts = [
         price: 2300,
         sale: 2900,
         saleColor: 'rgb(187, 38, 73)',
-        totalPrice: 2300
+        totalPrice: 2300,
+        newItem: false
     },
     {
         id: 7,
@@ -105,7 +113,8 @@ const allProducts = [
         price: 1200,
         sale: 1000,
         saleColor: 'rgb(187, 38, 73)',
-        totalPrice: 1200
+        totalPrice: 1200,
+        newItem: true
     },
     {
         id: 8,
@@ -115,7 +124,8 @@ const allProducts = [
         color: 'rgb(207, 152, 129)',
         count: 1,
         price: 1000,
-        totalPrice: 1000
+        totalPrice: 1000,
+        newItem: false
     },
     {
         id: 9,
@@ -127,7 +137,8 @@ const allProducts = [
         price: 750,
         sale: 850,
         saleColor: 'rgb(187, 38, 73)',
-        totalPrice: 750
+        totalPrice: 750,
+        newItem: true
     },
     {
         id: 10,
@@ -137,7 +148,8 @@ const allProducts = [
         color: 'rgb(254, 200, 126)',
         count: 1,
         price: 500,
-        totalPrice: 500
+        totalPrice: 500,
+        newItem: true
     },
     {
         id: 11, 
@@ -157,7 +169,8 @@ const allProducts = [
         color: 'rgb(131, 132, 134)',
         count: 1, 
         price: 300,
-        totalPrice: 300
+        totalPrice: 300,
+        newItem: true
     },
     {
         id: 13,
@@ -167,12 +180,13 @@ const allProducts = [
         color: 'rgb(131, 132, 134)',
         count: 1,
         price: 250,
-        totalPrice: 250
+        totalPrice: 250,
+        newItem: true
     },
     {
         id: 14,
         img: airPodsMax,
-        title: 'Apple AirProds Max',
+        title: 'Apple Air Pods Max',
         description: 'Introducing AirPods Max — a perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here. The over-ear headphone has been completely reimagined. From cushion to canopy, AirPods Max are designed for an uncompromising fit that creates the optimal acoustic seal for many different head shapes — fully immersing you in every sound',
         color: 'rgb(91, 183, 218)',
         count: 1,

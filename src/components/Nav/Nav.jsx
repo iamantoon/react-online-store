@@ -10,6 +10,7 @@ import cart from './../../images/icons/cart.svg';
 const Nav = ({total}) => {
     
     const [openButton, setOpenButton] = useState(false);
+    const [store, setStore] = useState(false);
 
     const openNav = () => {
         setOpenButton(true);
@@ -17,6 +18,10 @@ const Nav = ({total}) => {
 
     const closeNav = () => {
         setOpenButton(false);
+    }
+
+    const togglestore = () => {
+        setStore(!store);
     }
 
     return (
@@ -32,6 +37,8 @@ const Nav = ({total}) => {
                         </li>
                         <li className="nav-list__item">
                             <NavLink to="/products" className="nav-list__link" onClick={closeNav}>Products</NavLink>
+                        </li>
+                        <li className="nav-list__item nav-shop" onClick={togglestore}>Store
                         </li>
                         <li className="nav-list__item">
                             <NavLink to="/about" className="nav-list__link" onClick={closeNav}>About</NavLink>
@@ -51,6 +58,27 @@ const Nav = ({total}) => {
                         </div>
                     </div>
                 </nav>
+                <div className={store ? "shop-items open" : "shop-items"}>
+                    <div className="shop-items__column">
+                        <h4 className="shop-items__title">Shop</h4>
+                        <NavLink to="/iphone" onClick={togglestore}>iPhone</NavLink>
+                        <NavLink to="/mac" onClick={togglestore}>Mac</NavLink>
+                        <NavLink to="/applewatch" onClick={togglestore}>Apple Watch</NavLink>
+                        <NavLink to="/airpods" onClick={togglestore}>Air Pods</NavLink> 
+                    </div>
+                    <div className="shop-items__column">
+                        <h4 className="shop-items__title">Quick links</h4>
+                        <NavLink onClick={togglestore}>Find a store</NavLink>
+                        <NavLink onClick={togglestore}>Order status</NavLink>
+                        <NavLink onClick={togglestore}>Financing</NavLink>
+                    </div>
+                    <div className="shop-items__column">
+                        <h4 className="shop-items__title">Accessories</h4>
+                        <NavLink onClick={togglestore}>TV & Home</NavLink>
+                        <NavLink onClick={togglestore}>AirTag</NavLink>
+                        <NavLink onClick={togglestore}>HomePod</NavLink>
+                    </div>
+                </div>
             </div>
         </nav>
     );

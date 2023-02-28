@@ -13,7 +13,7 @@ import servicesList from '../../helpers/servicesList';
 import home from './../../images/title.png';
 import "./style.css";
 
-const Home = ({addProductToCart}) => {
+const Home = ({addProductToCart, myUkrainianArray}) => {
 
     const [products, setProducts] = useState(allProducts);
     const [news, setNews] = useState(newsList);
@@ -38,19 +38,20 @@ const Home = ({addProductToCart}) => {
                 <section className="section-sale">
                     <h1 className="section-sale__title"><span style={{color: '#BB2649'}}>Order now</span> and get <span style={{color: '#BB2649'}}>20%</span> off</h1>
                     <ul className="section-sale__products">
-                        {products.map((item) => {
-                            if (item.sale) {
+                        {products.map((product) => {
+                            if (product.sale) {
                                 return <Product 
-                                            key={item.id} 
-                                            img={item.img} 
-                                            title={item.title} 
-                                            description={item.description}
-                                            price={item.price} 
-                                            id={item.id} 
-                                            sale={item.sale}
-                                            saleColor={item.saleColor}
+                                            key={product.id} 
+                                            img={product.img} 
+                                            title={product.title} 
+                                            description={product.description}
+                                            price={product.price} 
+                                            id={product.id} 
+                                            sale={product.sale}
+                                            saleColor={product.saleColor}
 
                                             addProductToCart={addProductToCart}
+                                            myUkrainianArray={myUkrainianArray}
                                         />
                             }
                         })}

@@ -7,16 +7,13 @@ import About from './pages/About/About';
 import Cart from './components/Cart/Cart';
 import Product from './pages/Product/Product';
 import NewsPage from './pages/NewsPage/NewsPage';
-
+import IPhone from './pages/IPhone/IPhone';
 import Career from './pages/Career/Career';
 import Contacts from './pages/Contacts/Contacts';
 import Privacy from './pages/Privacy/Privacy';
-
 import Nav from './components/Nav/Nav';
 import Footer from './components/footer/Footer';
-
 import ScrollToTop from './utils/scrollToTop.js';
-
 import allProducts from './helpers/allProducts';
 
 import './style/main.css';
@@ -56,7 +53,32 @@ function App() {
         return items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
     });
 
-    return (        
+    let myUkrainianArray = [];
+
+    async function convertCurrencies() {
+        const uahArray = await Promise.all(items.map(currencyConverter));
+        return uahArray;
+    }
+      
+    async function currencyConverter(index) {
+        const response = await fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5');
+        const data = await response.json();
+        const dollar = data[1]['sale'];
+        return index.price * dollar;
+    }
+      
+    // Call convertCurrencies() from another async function
+    async function someOtherFunction() {
+        const uahArray = await convertCurrencies();
+
+        for (let i = 0; i < uahArray.length; i++) {
+            myUkrainianArray.push(uahArray[i]);
+        }
+    }
+      
+    someOtherFunction();
+
+    return (
         <div className="App">
             <Router>
                 <ScrollToTop />
@@ -73,13 +95,13 @@ function App() {
                         selectedSort={selectedSort}
                         sortProducts={sortProducts}
                         searchedAndSortedProducts={searchedAndSortedProducts}
+                        myUkrainianArray={myUkrainianArray}
                     />} />
-
-                    <Route path="/news/:id" element={<NewsPage />} />
-
+                    <Route path="/:name" element={<IPhone items={items} myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/cart" element={<Cart productCartArray={productCartArray} setProductCartArray={setProductCartArray}/>} /> 
-                    <Route path="/product/:id" element={<Product addProductToCart={addProductToCart} />} />
+                    <Route path="/news/:id" element={<NewsPage />} />     
+                    <Route path="/product/:id" element={<Product addProductToCart={addProductToCart} myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/contacts" element={<Contacts />} />
                     <Route path="/privacy" element={<Privacy />} />             
