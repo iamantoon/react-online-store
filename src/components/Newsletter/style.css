@@ -31,7 +31,7 @@
     height: 43px;
     padding: 3px 6px;
     border: 1.5px solid #BB2649;
-
+    border-radius: 0;
     font-size: 17px;
     font-weight: 500;
 }

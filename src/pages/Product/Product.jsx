@@ -24,11 +24,9 @@ const Product = ({addProductToCart, myUkrainianArray}) => {
 
     const [modal, setModal] = useState(false);
     
-    console.log(product.color);
     const textColor = {
         color: product.color
     };
-    console.log(textColor);
 
     return (
         <section className="product-section">

@@ -21,3 +21,9 @@
     display: block;
     margin: 0 auto;
 }
+@media (max-width: 680px) {
+    .services-item__text {
+        width: 300px;
+        font-size: 18px;
+    }
+}
