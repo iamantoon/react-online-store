@@ -7,7 +7,8 @@ import About from './pages/About/About';
 import Cart from './components/Cart/Cart';
 import Product from './pages/Product/Product';
 import NewsPage from './pages/NewsPage/NewsPage';
-import IPhone from './pages/IPhone/IPhone';
+import Store from './pages/Store/Store';
+import Accessories from './pages/Accessories/Accessories';
 import Career from './pages/Career/Career';
 import Contacts from './pages/Contacts/Contacts';
 import Privacy from './pages/Privacy/Privacy';
@@ -97,7 +98,8 @@ function App() {
                         searchedAndSortedProducts={searchedAndSortedProducts}
                         myUkrainianArray={myUkrainianArray}
                     />} />
-                    <Route path="/:name" element={<IPhone items={items} myUkrainianArray={myUkrainianArray} />} />
+                    <Route path="/:name" element={<Store items={items} myUkrainianArray={myUkrainianArray} />} />
+                    <Route path="/accessories/:name" element={<Accessories />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/cart" element={<Cart productCartArray={productCartArray} setProductCartArray={setProductCartArray}/>} /> 
                     <Route path="/news/:id" element={<NewsPage />} />     

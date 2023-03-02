@@ -29,11 +29,13 @@
     height: 250px;
     object-fit: contain;
     border-bottom: 1px solid rgb(212, 196, 199);
+    padding: 5px 0;
 }
 .product-item__title {
     font-size: 17px;
+    font-weight: 500;
     color: #252525;
-    padding: 10px 10px 0 10px;
+    padding: 0 10px 2px 10px;
 }
 .product-item__price {
     display: flex;
@@ -52,6 +54,7 @@
 .product-item__description {
     display: flex;
     justify-content: space-between;
+    padding: 7px;
 }
 .product-item__description button {
     margin-right: 10px;

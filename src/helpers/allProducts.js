@@ -179,8 +179,8 @@ const allProducts = [
         description: 'Personalised Spatial Audio with dynamic head tracking places sounds all around you to create a three-dimensional listening experience for music, TV shows, movies and more — immersing you in sounds from every direction so it feels like you’re in your very own concert hall or cinema. ',
         color: 'rgb(131, 132, 134)',
         count: 1,
-        price: 250,
-        totalPrice: 250,
+        price: 200,
+        totalPrice: 200,
         newItem: true
     },
     {

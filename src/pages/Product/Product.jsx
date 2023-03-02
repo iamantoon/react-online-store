@@ -60,22 +60,22 @@ const Product = ({addProductToCart, myUkrainianArray}) => {
                                 <h3 className="modal-content__title">Pick payment</h3>
                                 <div className="modal-content__payment">
                                     <button className="payment-btn">
-                                        <img src={mastercard} />
+                                        <img src={mastercard} alt="mastercard" />
                                     </button>
                                     <button className="payment-btn">
-                                        <img src={visa} />
+                                        <img src={visa} alt="visa" />
                                     </button>
                                     <button className="payment-btn">
-                                        <img src={applepay} />
+                                        <img src={applepay} alt="applepay" />
                                     </button>
                                     <button className="payment-btn">
-                                        <img src={googlepay} />
+                                        <img src={googlepay} alt="googlepay" />
                                     </button>
                                     <button className="payment-btn">
-                                        <img src={paypal} />
+                                        <img src={paypal} alt="paypal" />
                                     </button>
                                     <button className="payment-btn">
-                                        <img src={amazonpay} />
+                                        <img src={amazonpay} alt="amazonpay" />
                                     </button>
                                 </div>
                             </div>

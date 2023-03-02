@@ -27,6 +27,7 @@ const Nav = ({total}) => {
     return (
         <nav className="nav">
             <div className="nav-container">
+
                 <nav className={openButton ? "nav-nav open" : "nav-nav"}>
                     <div className="nav-logo">
                         <h1 className="nav-logo__title">The Apple Hub</h1>
@@ -67,18 +68,19 @@ const Nav = ({total}) => {
                         <NavLink to="/airpods" onClick={togglestore}>Air Pods</NavLink> 
                     </div>
                     <div className="shop-items__column">
-                        <h4 className="shop-items__title">Quick links</h4>
-                        <NavLink onClick={togglestore}>Find a store</NavLink>
-                        <NavLink onClick={togglestore}>Order status</NavLink>
-                        <NavLink onClick={togglestore}>Financing</NavLink>
+                        <h4 className="shop-items__title">Accessories</h4>
+                        <NavLink to="/accessories/iphone" onClick={togglestore}>iPhone Accessories</NavLink>
+                        <NavLink to="/accessories/mac" onClick={togglestore}>Mac Accessories</NavLink>
+                        <NavLink to="/accessories/applewatch" onClick={togglestore}>Apple Watch Straps</NavLink>
                     </div>
                     <div className="shop-items__column">
-                        <h4 className="shop-items__title">Accessories</h4>
-                        <NavLink onClick={togglestore}>TV & Home</NavLink>
-                        <NavLink onClick={togglestore}>AirTag</NavLink>
-                        <NavLink onClick={togglestore}>HomePod</NavLink>
-                    </div>
+                        <h4 className="shop-items__title">Quick links</h4>
+                        <NavLink to="/" onClick={togglestore}>Find a store</NavLink>
+                        <NavLink to="/" onClick={togglestore}>Order status</NavLink>
+                        <NavLink to="/" onClick={togglestore}>Financing</NavLink>
+                    </div>  
                 </div>
+
             </div>
         </nav>
     );

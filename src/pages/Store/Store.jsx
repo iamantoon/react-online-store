@@ -1,9 +1,9 @@
 import {useParams} from "react-router-dom";
-import StoreItem from "./../../components/StoreItem/StoreItem";
-import store from "./../../helpers/store";
+import StoreItem from "../../components/StoreItem/StoreItem";
+import store from "../../helpers/store";
 import "./main.css";
 
-const IPhone = ({items, myUkrainianArray}) => {
+const Store = ({items, myUkrainianArray}) => {
 
     const {name} = useParams();
 
@@ -47,4 +47,4 @@ const IPhone = ({items, myUkrainianArray}) => {
     );
 }
 
-export default IPhone;
+export default Store;
