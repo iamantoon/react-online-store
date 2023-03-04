@@ -9,6 +9,7 @@ import Product from './pages/Product/Product';
 import NewsPage from './pages/NewsPage/NewsPage';
 import Store from './pages/Store/Store';
 import Accessories from './pages/Accessories/Accessories';
+import Accessory from './pages/Accessory/Accessory';
 import Career from './pages/Career/Career';
 import Contacts from './pages/Contacts/Contacts';
 import Privacy from './pages/Privacy/Privacy';
@@ -16,6 +17,7 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './utils/scrollToTop.js';
 import allProducts from './helpers/allProducts';
+import accessories from "./helpers/accessories";
 
 import './style/main.css';
 import './style/cart.css';
@@ -46,6 +48,15 @@ function App() {
             return [ 
                 ...products,
                 items[id]
+            ];
+        });
+    }
+
+    const addAccessoryToCart = (id) => {
+        setProductCartArray((prev) => {
+            return [
+                ...prev,
+                accessories[id]
             ];
         });
     }
@@ -99,7 +110,8 @@ function App() {
                         myUkrainianArray={myUkrainianArray}
                     />} />
                     <Route path="/:name" element={<Store items={items} myUkrainianArray={myUkrainianArray} />} />
-                    <Route path="/accessories/:name" element={<Accessories />} />
+                    <Route path="/accessories/:name" element={<Accessories myUkrainianArray={myUkrainianArray} />} />
+                    <Route path="/accessory/:id" element={<Accessory addProductToCart={addProductToCart} myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/cart" element={<Cart productCartArray={productCartArray} setProductCartArray={setProductCartArray}/>} /> 
                     <Route path="/news/:id" element={<NewsPage />} />     

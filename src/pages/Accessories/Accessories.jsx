@@ -1,12 +1,14 @@
+import {useState} from "react";
 import {useParams} from "react-router-dom";
 
 import Accessory from "./../../components/Accessory/Accessory";
 import store from "./../../helpers/store";
-import accessories from "../../helpers/accessories";
+import allProducts from "./../../helpers/allProducts";
 
 import "./main.css";
 
-const Accessories = () => {
+const Accessories = ({myUkrainianArray}) => {
+    const [accessories, setAccessories] = useState(allProducts);
 
     const {name} = useParams();
 
@@ -39,7 +41,7 @@ const Accessories = () => {
                 <ul className="store-item__products">
                     {accessories.map((accessory) => {
                         if (accessory.id < current.main && accessory.id > current.bottom) {
-                            return <Accessory key={accessory.id} title={accessory.title} img={accessory.img} price={accessory.price} id={accessory.id} />
+                            return <Accessory key={accessory.id} title={accessory.title} img={accessory.img} price={accessory.price} id={accessory.id} myUkrainianArray={myUkrainianArray} />
                         }
                     })}
                 </ul> 
@@ -51,7 +53,7 @@ const Accessories = () => {
                 <ul className="store-item__products">
                     {accessories.map((accessory) => {
                         if (accessory.id >= current.main && accessory.id < current.top) {
-                            return <Accessory key={accessory.id} title={accessory.title} img={accessory.img} price={accessory.price} id={accessory.id} />
+                            return <Accessory key={accessory.id} title={accessory.title} img={accessory.img} price={accessory.price} id={accessory.id} myUkrainianArray={myUkrainianArray} />
                         }
                     })}
                 </ul>

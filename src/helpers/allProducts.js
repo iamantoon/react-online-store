@@ -1,7 +1,6 @@
 import iphone12pro from './../images/products/apple_iphone_12_pro.jpg';
 import iphone13pro from './../images/products/iphone13pro.jpg';
-import iphone14Pro from './../images/products/iphone-14-pro.png';
-import iphone14 from './../images/products/try14.jpg';
+import iphone14pro from './../images/products/try14.jpg';
 
 import imac1 from './../images/products/imac1.jpg';
 import imac2 from './../images/products/imac2.jpg';
@@ -18,6 +17,30 @@ import appleWatchSE from './../images/products/air-pods-se.jpg';
 import airPodsPro2 from './../images/products/air-pods-pro-2.jpg';
 import airPods3 from './../images/products/air-pods-3.jpg';
 import airPodsMax from './../images/products/air-pods-max.png';
+
+import magsafe1 from "./../images/products/imag.jpg";
+import magsafe2 from "./../images/products/sel.jpg";
+import magsafe3 from "./../images/products/mags.jpg";
+
+import lightning from "./../images/products/lightning.jpg";
+import charger from "./../images/products/charger.jpg";
+import adapter from "./../images/products/2b.jpg";
+
+import keyboard from "./../images/products/keyboard.jpg";
+import mouse from "./../images/products/mouse.jpg";
+import multiport from "./../images/products/multiport.jpg";
+
+import mount from "./../images/products/mount.jpg";
+import dual from "./../images/products/dual.jpg";
+import cabel from "./../images/products/cabel.jpg";
+
+import strap1 from "./../images/products/strap1.jpg";
+import strap2 from "./../images/products/strap2.jpg";
+import strap3 from "./../images/products/strap3.jpg";
+
+import strap4 from "./../images/products/strap4.jpg";
+import strap5 from "./../images/products/strap5.jpg";
+import strap6 from "./../images/products/strap6.jpg";
 
 const allProducts = [
     {
@@ -46,7 +69,7 @@ const allProducts = [
     },
     {
         id: 2,
-        img: iphone14,
+        img: iphone14pro,
         title: 'Apple iPhone 14 Pro Max 512GB Deep Purple',
         description: 'A magical new way to interact with iPhone. Groundbreaking safety features designed to save lives. An innovative 48MP camera for mind-blowing detail. All powered by the ultimate smartphone chip. Introducing Dynamic Island, a truly Apple innovation that’s hardware and software and something in between. It bubbles up music, FaceTime and so much more — all without taking you away from what you’re doing',
         color: 'rgb(76, 0, 153)',
@@ -194,6 +217,168 @@ const allProducts = [
         sale: 600,
         saleColor: 'rgb(187, 38, 73)',
         totalPrice: 500
+    },
+    {
+        id: 15,
+        title: "iPhone 14 Pro Max Silicone Case with MagSafe - Elderberry",
+        description: "Designed by Apple to complement iPhone 14 Pro Max, the Silicone Case with MagSafe is a delightful way to protect your iPhone. The silky, soft-touch finish of the silicone exterior feels great in your hand. And on the inside, there’s a soft microfibre lining for even more protection. Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops.",
+        img: magsafe1,
+        count: 1,
+        price: 50,
+        totalPrice: 50
+    },
+    {
+        id: 16,
+        title: "iPhone 14 Pro Max Clear Case with MagSafe",
+        description: "Thin, light and easy to grip — this Apple-designed case shows off the brilliant coloured finish of iPhone 14 Pro while providing extra protection. Crafted with a blend of optically clear polycarbonate and flexible materials, the case fits right over the buttons for easy use. On the surface, a scratch-resistant coating has been applied to both the interior and exterior. And all materials and coatings are optimised to prevent yellowing over time",
+        count: 1,
+        img: magsafe2,
+        price: 50, 
+        totalPrice: 50
+    },
+    {
+        id: 17,
+        title: "iPhone 14 Plus Silicone Case with MagSafe",
+        description: "Designed by Apple to complement iPhone 14 Plus, the Silicone Case with MagSafe is a delightful way to protect your iPhone. The silky, soft-touch finish of the silicone exterior feels great in your hand. And on the inside, there’s a soft microfibre lining for even more protection. Like every Apple-designed case, it undergoes thousands of hours of testing throughout the design and manufacturing process. So not only does it look great, it’s built to protect your iPhone from scratches and drops.",
+        img: magsafe3,
+        count: 1,
+        price: 55,
+        totalPrice: 55
+    },
+    {
+        id: 18,
+        title: "USB-C to Lightning Cable (1m)",
+        img: lightning,
+        price: 20,
+        description: "Connect your iPhone, iPad or iPod with Lightning connector to your USB-C– or Thunderbolt 3 (USB-C)–enabled Mac for syncing and charging, or to your USB-C–enabled iPad for charging. You can also use this cable with your Apple 18W, 20W, 29W, 30W, 61W, 87W or 96W USB‑C Power Adapter to charge your iOS device and even take advantage of the fast-charging feature on selected iPhone and iPad models.",
+        count: 1,
+        totalPrice: 20
+    },
+    {
+        id: 19,
+        title: "MagSafe Charger",
+        img: charger,
+        price: 45,
+        description: "The MagSafe Charger makes wireless charging snappy. The perfectly aligned magnets attach to your iPhone 14, iPhone 14 Pro, iPhone 13, iPhone 13 Pro, iPhone 12 and iPhone 12 Pro, and provide faster wireless charging up to 15W. The MagSafe Charger maintains compatibility with Qi charging, so it can be used to wirelessly charge your iPhone 8 or later, as well as AirPods models with a wireless charging case, as you would with any Qi-certified charger. The magnetic alignment experience only applies to iPhone 14, iPhone 14 Pro, iPhone 13, iPhone 13 Pro, iPhone 12 and iPhone 12 Pro models",
+        count: 1,
+        totalPrice: 45
+    },
+    {
+        id: 20,
+        title: "20W USB-C Power Adapter",
+        img: adapter,
+        price: 35,
+        description: "",
+        count: 1,
+        totalPrice: 35
+    },
+    {
+        id: 21,
+        title: "Magic Keyboard with Touch ID and Numeric Keypad",
+        img: keyboard,
+        price: 250,
+        description: "Magic Keyboard with Touch ID and Numeric Keypad delivers a remarkably comfortable and precise typing experience. It features an extended layout, with document navigation controls for quick scrolling and full-size arrow keys, which are great for gaming. The numeric keypad is also ideal for spreadsheets and finance applications. It’s wireless and features a rechargeable battery that will power your keyboard for about a month or more between charges.¹ It pairs automatically with your Mac, so you can get to work straightaway. And it includes a woven USB-C to Lightning Cable that lets you pair and charge by connecting to a USB-C port on your Mac",
+        count: 1,
+        totalPrice: 250
+    },
+    {
+        id: 22,
+        title: "Magic Mouse",
+        img: mouse,
+        price: 125,
+        description: "Magic Mouse is wireless and rechargeable, with an optimised foot design that lets it glide smoothly across your desk. The Multi-Touch surface allows you to perform simple gestures such as swiping between web pages and scrolling through documents. The rechargeable battery will power your Magic Mouse for about a month or more between charges. It’s ready to go straight out of the box and pairs automatically with your Mac, and it includes a woven USB-C to Lightning Cable that lets you pair and charge by connecting to a USB-C port on your Mac",
+        count: 1,
+        totalPrice: 125
+    },
+    {
+        id: 23,
+        title: "USB-C Digital AV Multiport Adapter",
+        img: multiport,
+        price: 100,
+        description: "The USB-C Digital AV Multiport Adapter lets you connect your USB-C–enabled Mac or iPad to an HDMI display, while also connecting a standard USB device and a USB-C charging cable. This adapter allows you to mirror your Mac or iPad display to your HDMI-enabled TV or display",
+        count: 1,
+        totalPrice: 100
+    },
+    {
+        id: 24,
+        title: "Belkin iPhone Mount (Magsafe Compatible)",
+        img: mount,
+        price: 50,
+        description: "The Belkin iPhone Mount (Magsafe Compatible) for Mac Desktops utilises the new Continuity Camera features in the latest version of macOS Ventura. You can easily mount your MagSafe-compatible iPhone securely to your Mac desktop or display with this durable mount for FaceTime, capturing content, video conferencing and more. The magnetic attachment allows for easy, seamless, hands-free camera streaming. Easily rotate your iPhone to portrait or landscape and adjust viewing angles from vertical to 25 degrees downwards with the tilting hinge.",
+        count: 1,
+        totalPrice: 50
+    },
+    {
+        id: 25,
+        title: "35W Dual USB-C Port Power Adapter",
+        img: dual,
+        price: 85,
+        description: "The 35W Dual USB‑C Port Power Adapter allows you to charge two devices at the same time, whether you’re at home, in the office or on the go. Apple recommends using it with MacBook Air. You can also use it with iPhone, iPad, Apple Watch and AirPods. Pair this power adapter with the World Travel Adapter Kit to charge in other regions around the world. Charging cable sold separately",
+        count: 1,
+        totalPrice: 85
+    },
+    {
+        id: 26,
+        title: "USB-C to MagSafe 3 Cable (2m)",
+        img: cabel,
+        price: 75,
+        description: "This 2-metre charge cable features a magnetic MagSafe 3 connector that helps guide the plug to the charging port of your Mac notebook. Pair it with a compatible USB-C power adapter to conveniently charge your notebook from a power point and take advantage of fast-charging capabilities. The magnetic connection is strong enough to resist most unintended disconnects, but if someone trips on the cable, it releases so your Mac notebook stays put. An LED turns amber when the battery is charging and green when it’s fully charged. Made with a woven design for long-lasting durability",
+        count: 1,
+        totalPrice: 75
+    },
+    {
+        id: 27,
+        title: "49mm Green Alpine Loop",
+        img: strap1,
+        price: 100,
+        description: "The rugged Alpine Loop is made from two textile layers woven together into one continuous piece without stitching. High-strength yarns reinforce the top loops, and the corrosion-resistant titanium G-hook slides easily into the loops for secure fit. Material: Polyester",
+        count: 1,
+        totalPrice: 100
+    },
+    {
+        id: 28,
+        title: "49mm Orange Alpine Loop",
+        img: strap2,
+        price: 100,
+        description: "The rugged Alpine Loop is made from two textile layers woven together into one continuous piece without stitching. High-strength yarns reinforce the top loops, and the corrosion-resistant titanium G-hook slides easily into the loops for secure fit.  Material: Polyester",
+        count: 1,
+        totalPrice: 100
+    },
+    {
+        id: 29,
+        title: "49mm Yellow/Beige Trail Loop",
+        img: strap3,
+        price: 100,
+        description: "The thin, lightweight Trail Loop is made from a nylon weave creating a soft strap with increased elasticity for a comfortable fit. The strap is infinitely adjustable with a convenient pull tab for quick adjustments on the go. Material: Nylon",
+        count: 1,
+        totalPrice: 100
+    },
+    {
+        id: 30,
+        title: "49mm Starlight Alpine Loop",
+        img: strap4,
+        price: 100,
+        description: "The rugged Alpine Loop is made from two textile layers woven together into one continuous piece without stitching. High-strength yarns reinforce the top loops, and the corrosion-resistant titanium G-hook slides easily into the loops for secure fit. Material: Polyester",
+        count: 1,
+        totalPrice: 100
+    },
+    {
+        id: 31,
+        title: "49mm Black/Grey Trail Loop",
+        img: strap5,
+        price: 100,
+        description: "The thin, lightweight Trail Loop is made from a nylon weave creating a soft strap with increased elasticity for a comfortable fit. The strap is infinitely adjustable with a convenient pull tab for quick adjustments on the go. Material: Nylon",
+        count: 1,
+        totalPrice: 100
+    },
+    {
+        id: 32,
+        title: "49mm Blue/Grey Trail Loop",
+        img: strap6,
+        price: 100,
+        description: "The thin, lightweight Trail Loop is made from a nylon weave creating a soft strap with increased elasticity for a comfortable fit. The strap is infinitely adjustable with a convenient pull tab for quick adjustments on the go. Material: Nylon",
+        count: 1,
+        totalPrice: 100
     }
 ];
 
