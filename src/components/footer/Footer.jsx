@@ -56,6 +56,9 @@ const Footer = () => {
                         <NavLink to="/contacts" className="footer-items__link">Contact us</NavLink>
                     </li>
                     <li className="footer-items__item">
+                        <NavLink to="/question" className="footer-items__link">Feedback</NavLink>
+                    </li>
+                    <li className="footer-items__item">
                         <NavLink to="/privacy" className="footer-items__link">Privacy</NavLink>
                     </li>
                 </ul>

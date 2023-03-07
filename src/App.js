@@ -12,12 +12,12 @@ import Accessories from './pages/Accessories/Accessories';
 import Accessory from './pages/Accessory/Accessory';
 import Career from './pages/Career/Career';
 import Contacts from './pages/Contacts/Contacts';
+import Question from './pages/Question/Question';
 import Privacy from './pages/Privacy/Privacy';
 import Nav from './components/Nav/Nav';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './utils/scrollToTop.js';
 import allProducts from './helpers/allProducts';
-import accessories from "./helpers/accessories";
 
 import './style/main.css';
 import './style/cart.css';
@@ -48,15 +48,6 @@ function App() {
             return [ 
                 ...products,
                 items[id]
-            ];
-        });
-    }
-
-    const addAccessoryToCart = (id) => {
-        setProductCartArray((prev) => {
-            return [
-                ...prev,
-                accessories[id]
             ];
         });
     }
@@ -118,6 +109,7 @@ function App() {
                     <Route path="/product/:id" element={<Product addProductToCart={addProductToCart} myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/contacts" element={<Contacts />} />
+                    <Route path="/question" element={<Question />} />
                     <Route path="/privacy" element={<Privacy />} />             
                 </Routes>
                 <Footer />
