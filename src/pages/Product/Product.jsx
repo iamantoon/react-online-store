@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import MyModal from './../../components/UI/modal/MyModal';
 import MyInput from './../../components/UI/input/MyInput';
@@ -23,10 +23,93 @@ const Product = ({addProductToCart, myUkrainianArray}) => {
     const product = allProducts[id];
 
     const [modal, setModal] = useState(false);
-    
+
     const textColor = {
         color: product.color
     };
+
+    /* Form validation */
+
+    const [formValid, setFormValid] = useState(false);
+    const [inputs, setInputs] = useState({firstname: '', lastname: '', email: '', phone: ''});
+    
+    const [firstNameDirty, setFirstNameDirty] = useState(false);
+    const [lastNameDirty, setLastNameDirty] = useState(false);
+    const [emailDirty, setEmailDirty] = useState(false);
+    const [phoneDirty, setPhoneDirty] = useState(false);
+
+    const [firstNameError, setFirstNameError] = useState("This field can't be empty");
+    const [lastNameError, setLastNameError] = useState("This field can't be empty");
+    const [emailError, setEmailError] = useState("This field can't be empty");
+    const [phoneError, setPhoneError] = useState("This field can't be empty");
+
+    const blurHandler = (e) => {
+        switch(e.target.name) {
+            case "firstname":
+                setFirstNameDirty(true);
+                break;
+            case "lastname":
+                setLastNameDirty(true);
+                break;
+            case "email":
+                setEmailDirty(true);
+                break;
+            case "phone":
+                setPhoneDirty(true);
+                break;
+        }
+    }
+    
+    const firstNameHandler = (e) => {
+        setInputs({...inputs, firstname: e.target.value});
+        if (Number.isInteger(Number(e.target.value))) {
+            setFirstNameError("Invalid value");
+        } else if (e.target.value.length < 2) {
+            setFirstNameError("Too short firstname");
+        } else {
+            setFirstNameError("");
+        }
+    }
+
+    const lastNameHandler = (e) => {
+        setInputs({...inputs, lastname: e.target.value});
+        if (Number.isInteger(Number(e.target.value))) {
+            setLastNameError("Invalid value");
+        } else if (e.target.value < 2) {
+            setLastNameError("Too short lastname");
+        } else {
+            setLastNameError("");
+        }
+    }
+
+    const emailHandler = (e) => {
+        setInputs({...inputs, email: e.target.value});
+        const re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setEmailError("Invalid email");
+        } else {
+            setEmailError("");
+        }
+        console.log(emailError);
+    }
+
+    const phoneHandler = (e) => {
+        setInputs({...inputs, phone: e.target.value});
+        const re = /([0-9]+(-[0-9]+)+)/;
+        if (!re.test(String(e.target.value).toLowerCase())) {
+            setPhoneError("Invalid phone number");
+        } else {
+            setPhoneError("");
+        }
+    }
+
+    useEffect(() => {
+        if (firstNameError || lastNameError || emailError || phoneError) {
+            setFormValid(false);
+        } else {
+            setFormValid(true);
+        }
+    });
 
     return (
         <section className="product-section">
@@ -52,29 +135,61 @@ const Product = ({addProductToCart, myUkrainianArray}) => {
                             <div className="modal-content">
                                 <h3 className="modal-content__title">Fill the form to make an order</h3>
                                 <div className="modal-content__input">
-                                    <MyInput type="text" placeholder="Your firstname"></MyInput>
-                                    <MyInput type="text" placeholder="Your lastname"></MyInput>
-                                    <MyInput type="text" placeholder="Your email"></MyInput>
-                                    <MyInput type="text" placeholder="Your number"></MyInput>
+                                    {(firstNameDirty && firstNameError) && <div className="error">{firstNameError}</div>}
+                                    <MyInput 
+                                        type="text" 
+                                        value={inputs.firstname}
+                                        onChange={(e) => firstNameHandler(e)}
+                                        onBlur={(e) => blurHandler(e)}
+                                        name="firstname"
+                                        placeholder="Your firstname"
+                                    />
+                                    {(lastNameDirty && lastNameError) && <div className="error">{lastNameError}</div>}
+                                    <MyInput 
+                                        type="text" 
+                                        value={inputs.lastname}
+                                        onChange={(e) => lastNameHandler(e)}
+                                        onBlur={(e) => blurHandler(e)}
+                                        name="lastname"
+                                        placeholder="Your lastname" 
+                                    />
+                                    {(emailDirty && emailError) && <div className="error">{emailError}</div>}
+                                    <MyInput 
+                                        type="text" 
+                                        value={inputs.email}
+                                        onChange={(e) => emailHandler(e)}
+                                        onBlur={(e) => blurHandler(e)}
+                                        name="email"
+                                        placeholder="Your email"
+                                    />
+                                    {(phoneDirty && phoneError) && <div className="error">{phoneError}</div>}
+                                    <MyInput 
+                                        type="text"   
+                                        value={inputs.phone}
+                                        onChange={(e) => phoneHandler(e)}
+                                        onBlur={(e) => blurHandler(e)}
+                                        name="phone"
+                                        placeholder="Your number" 
+                                    />
                                 </div>
                                 <h3 className="modal-content__title">Pick payment</h3>
                                 <div className="modal-content__payment">
-                                    <button className="payment-btn">
+                                    <button disabled={!formValid} className="payment-btn">
                                         <img src={mastercard} alt="mastercard" />
                                     </button>
-                                    <button className="payment-btn">
+                                    <button disabled={!formValid} className="payment-btn">
                                         <img src={visa} alt="visa" />
                                     </button>
-                                    <button className="payment-btn">
+                                    <button disabled={!formValid} className="payment-btn">
                                         <img src={applepay} alt="applepay" />
                                     </button>
-                                    <button className="payment-btn">
+                                    <button disabled={!formValid} className="payment-btn">
                                         <img src={googlepay} alt="googlepay" />
                                     </button>
-                                    <button className="payment-btn">
+                                    <button disabled={!formValid} className="payment-btn">
                                         <img src={paypal} alt="paypal" />
                                     </button>
-                                    <button className="payment-btn">
+                                    <button disabled={!formValid} className="payment-btn">
                                         <img src={amazonpay} alt="amazonpay" />
                                     </button>
                                 </div>

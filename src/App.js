@@ -20,8 +20,8 @@ import ScrollToTop from './utils/scrollToTop.js';
 import allProducts from './helpers/allProducts';
 
 import './style/main.css';
-import './style/cart.css';
 import './style/reset.css';
+import './style/cart.css';
 
 function App() {
     const [items, setItems] = useState(allProducts);

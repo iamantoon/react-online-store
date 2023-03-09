@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import MyInput from "./../UI/input/MyInput";
 import MySelect from "./../UI/select/MySelect";
-import QuestionList from "./../QuestionList/QuestionList";
+import QuestionList from "../QuestionList/QuestionList";
 import plus from "./../../images/icons/plus.svg";
 
 const QuestionForm = () => {
@@ -23,8 +23,8 @@ const QuestionForm = () => {
     const [selectedQuestion, setSelectedQuestion] = useState('');
 
     const changeQuestion = (question) => {
+        setInputs({...inputs, select: question});
         setSelectedQuestion(question);
-        setInputs({...inputs, select: selectedQuestion});
     }
 
     const confirmForm = (e) => {
@@ -70,7 +70,7 @@ const QuestionForm = () => {
 
     const phoneHandler = (e) => {
         setInputs({...inputs, phone: e.target.value});
-        const re = /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/;
+        const re = /([0-9]+(-[0-9]+)+)/;
         if (!re.test(String(e.target.value).toLowerCase())) {
             setPhoneError('Invalid phone number');
         } else {
@@ -110,7 +110,7 @@ const QuestionForm = () => {
     return (
         <div className="question-section">
             <form className="form-section">
-                {(nameDirty && nameError) && <div style={{color: '#bb2649'}}>{nameError}</div>}
+                {(nameDirty && nameError) && <div className="error">{nameError}</div>}
                 <MyInput 
                     onBlur={e => blurHandler(e)} 
                     value={inputs.name} 
@@ -119,7 +119,7 @@ const QuestionForm = () => {
                     type="text" 
                     placeholder="Your firstname" 
                 />
-                {(phoneDirty && phoneError) && <div style={{color: '#bb2649'}}>{phoneError}</div>}
+                {(phoneDirty && phoneError) && <div className="error">{phoneError}</div>}
                 <MyInput 
                     onBlur={e => blurHandler(e)} 
                     value={inputs.phone} 
@@ -128,7 +128,7 @@ const QuestionForm = () => {
                     type="text" 
                     placeholder="Your phone" 
                 />
-                {(emailDirty && emailError) && <div style={{color: '#bb2649'}}>{emailError}</div>}
+                {(emailDirty && emailError) && <div className="error">{emailError}</div>}
                 <MyInput 
                     onBlur={e => blurHandler(e)} 
                     value={inputs.email} 
@@ -143,7 +143,7 @@ const QuestionForm = () => {
                     {value: 'accessories', name: 'Accessories'},
                     {value: 'job', name: 'Careers'}
                 ]} defaultValue="You're interested in" />
-                {(textDirty && textError) && <div style={{color: '#bb2649'}}>{textError}</div>}
+                {(textDirty && textError) && <div className="error">{textError}</div>}
                 <textarea 
                     onBlur={e => blurHandler(e)} 
                     value={inputs.text}

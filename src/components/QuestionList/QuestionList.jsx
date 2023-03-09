@@ -7,10 +7,10 @@ const QuestionList = ({name, phone, email, text}) => {
                 <h4 className="sent__name">{name}</h4>
                 <p className="sent__phone">{phone}</p>
                 <div className="email-container">
-                    <p className="sent__phone">{email}</p>
+                    <input type="email" value={email} style={{marginTop: 10, fontSize: 15}} />
                 </div>
                 <div className="email-container">
-                    <p className="sent__text">{text}</p>
+                    <textarea value={text} rows="10" cols="20" style={{marginTop: 10, border: '1.5px solid white'}} />
                 </div> 
                 <div className="sent__icon">
                     <h1 style={{color: '#fff'}}>hello</h1>

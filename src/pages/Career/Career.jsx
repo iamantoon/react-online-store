@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import MySelect from './../../components/UI/select/MySelect';
 import Vacancy from './../../components/Vacancy/Vacancy';
@@ -15,6 +15,9 @@ const Career = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(8);
     const [page, setPage] = useState(1);
+
+    const [formValid, setFormValid] = useState(true);
+    const [error, setError] = useState(false);
 
     let pagesArray = getPagesArray(totalPages);
 
@@ -34,6 +37,16 @@ const Career = () => {
         fetchVacancies(limit, page);
     }
 
+    useEffect(() => {
+        if (profession && area && contract) {
+            setFormValid(true);
+            setError(false);
+        } else {
+            setFormValid(false);
+            setError(true);
+        }
+    }, [profession, area, contract]);
+
     return (
         <section className="section">
             <div className="container">
@@ -50,12 +63,12 @@ const Career = () => {
                                 {value: 'General management', name: 'General management'},
                                 {value: 'Digital', name: 'Digital'},
                                 {value: 'Finance', name: 'Finance'},
-                                {value: 'Information technology/Information system', name: 'Information technology / Information system'},
+                                {value: 'Information technology/Information system', name: 'Information technology'},
                                 {value: 'Manufacturing', name: 'Manufacturing'},
                                 {value: 'Merchandising', name: 'Merchandising'},
                                 {value: 'Purchasing', name: 'Purchasing'},
                                 {value: 'Sustainable development', name: 'Sustainable development'},
-                                {value: 'Hospitality and food & beverage', name: 'Hospitality and food & beverage'},
+                                {value: 'Hospitality and food & beverage', name: 'Hospitality and food'},
                                 {value: 'Research & innovation', name: 'Research & innovation'}
                             ]} defaultValue="Profession" />
                         <MySelect 
@@ -80,9 +93,16 @@ const Career = () => {
                                 {title: 'Graduate program', name: 'Graduate program'}
                             ]}
                         defaultValue="Contract type" />
-                        <button onClick={() => fetchVacancies(limit, page)} type="submit" className="confirm-button">Confirm</button>
+                        <button 
+                            disabled={!formValid} 
+                            onClick={() => fetchVacancies(limit, page)} 
+                            type="submit" 
+                            className="confirm-button"
+                        >
+                        Confirm
+                        <span className={error ? "tooltiptext visible" : "tooltiptext"}>Fill all the fields</span>
+                        </button>
                     </div>
-
                     <div className="section-result">
                         {vacancyError && <h1>{vacancyError}</h1>}
                         {isVacanciesLoading 
