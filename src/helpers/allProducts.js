@@ -55,6 +55,8 @@ const allProducts = [
         saleColor: 'rgb(187, 38, 73)',
         totalPrice: 1100,
         newItem: false,
+        wishlist: false,
+        cart: false,
     },
     {
         id: 1,
@@ -65,7 +67,9 @@ const allProducts = [
         count: 1,
         price: 1400,
         totalPrice: 1400,
-        newItem: false
+        newItem: false,
+        wishlist: false,
+        cart: false
     },
     {
         id: 2,
@@ -76,7 +80,9 @@ const allProducts = [
         count: 1,
         price: 1800,
         totalPrice: 1800,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 3,
@@ -87,7 +93,9 @@ const allProducts = [
         count: 1,
         price: 2000,
         totalPrice: 2000,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 4,
@@ -100,7 +108,9 @@ const allProducts = [
         sale: 2000,
         saleColor: 'rgb(187, 38, 73)',
         totalPrice: 1900,
-        newItem: false
+        newItem: false,
+        wishlist: false,
+        cart: false
     },
     {
         id: 5,
@@ -111,7 +121,9 @@ const allProducts = [
         count: 1,
         price: 2000,
         totalPrice: 2000,
-        newItem: false
+        newItem: false,
+        wishlist: false,
+        cart: false
     },
     {
         id: 6,
@@ -124,7 +136,9 @@ const allProducts = [
         sale: 2900,
         saleColor: 'rgb(187, 38, 73)',
         totalPrice: 2300,
-        newItem: false
+        newItem: false,
+        wishlist: false,
+        cart: false
     },
     {
         id: 7,
@@ -137,7 +151,9 @@ const allProducts = [
         sale: 1000,
         saleColor: 'rgb(187, 38, 73)',
         totalPrice: 1200,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 8,
@@ -148,7 +164,9 @@ const allProducts = [
         count: 1,
         price: 1000,
         totalPrice: 1000,
-        newItem: false
+        newItem: false,
+        wishlist: false,
+        cart: false
     },
     {
         id: 9,
@@ -161,7 +179,9 @@ const allProducts = [
         sale: 850,
         saleColor: 'rgb(187, 38, 73)',
         totalPrice: 750,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 10,
@@ -172,7 +192,9 @@ const allProducts = [
         count: 1,
         price: 500,
         totalPrice: 500,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 11, 
@@ -182,7 +204,9 @@ const allProducts = [
         color: 'rgb(245, 65, 92)',
         count: 1,
         price: 300,
-        totalPrice: 300
+        totalPrice: 300,
+        wishlist: false,
+        cart: false
     },
     {
         id: 12,
@@ -193,7 +217,9 @@ const allProducts = [
         count: 1, 
         price: 300,
         totalPrice: 300,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 13,
@@ -204,7 +230,9 @@ const allProducts = [
         count: 1,
         price: 200,
         totalPrice: 200,
-        newItem: true
+        newItem: true,
+        wishlist: false,
+        cart: false
     },
     {
         id: 14,
@@ -216,7 +244,9 @@ const allProducts = [
         price: 500,
         sale: 600,
         saleColor: 'rgb(187, 38, 73)',
-        totalPrice: 500
+        totalPrice: 500,
+        wishlist: false,
+        cart: false
     },
     {
         id: 15,
@@ -225,7 +255,9 @@ const allProducts = [
         img: magsafe1,
         count: 1,
         price: 50,
-        totalPrice: 50
+        totalPrice: 50,
+        wishlist: false,
+        cart: false
     },
     {
         id: 16,
@@ -234,7 +266,9 @@ const allProducts = [
         count: 1,
         img: magsafe2,
         price: 50, 
-        totalPrice: 50
+        totalPrice: 50,
+        wishlist: false,
+        cart: false
     },
     {
         id: 17,
@@ -243,7 +277,9 @@ const allProducts = [
         img: magsafe3,
         count: 1,
         price: 55,
-        totalPrice: 55
+        totalPrice: 55,
+        wishlist: false,
+        cart: false
     },
     {
         id: 18,
@@ -252,7 +288,9 @@ const allProducts = [
         price: 20,
         description: "Connect your iPhone, iPad or iPod with Lightning connector to your USB-C– or Thunderbolt 3 (USB-C)–enabled Mac for syncing and charging, or to your USB-C–enabled iPad for charging. You can also use this cable with your Apple 18W, 20W, 29W, 30W, 61W, 87W or 96W USB‑C Power Adapter to charge your iOS device and even take advantage of the fast-charging feature on selected iPhone and iPad models.",
         count: 1,
-        totalPrice: 20
+        totalPrice: 20,
+        wishlist: false,
+        cart: false
     },
     {
         id: 19,
@@ -261,7 +299,9 @@ const allProducts = [
         price: 45,
         description: "The MagSafe Charger makes wireless charging snappy. The perfectly aligned magnets attach to your iPhone 14, iPhone 14 Pro, iPhone 13, iPhone 13 Pro, iPhone 12 and iPhone 12 Pro, and provide faster wireless charging up to 15W. The MagSafe Charger maintains compatibility with Qi charging, so it can be used to wirelessly charge your iPhone 8 or later, as well as AirPods models with a wireless charging case, as you would with any Qi-certified charger. The magnetic alignment experience only applies to iPhone 14, iPhone 14 Pro, iPhone 13, iPhone 13 Pro, iPhone 12 and iPhone 12 Pro models",
         count: 1,
-        totalPrice: 45
+        totalPrice: 45,
+        wishlist: false,
+        cart: false
     },
     {
         id: 20,
@@ -270,7 +310,9 @@ const allProducts = [
         price: 35,
         description: "",
         count: 1,
-        totalPrice: 35
+        totalPrice: 35,
+        wishlist: false,
+        cart: false
     },
     {
         id: 21,
@@ -279,7 +321,9 @@ const allProducts = [
         price: 250,
         description: "Magic Keyboard with Touch ID and Numeric Keypad delivers a remarkably comfortable and precise typing experience. It features an extended layout, with document navigation controls for quick scrolling and full-size arrow keys, which are great for gaming. The numeric keypad is also ideal for spreadsheets and finance applications. It’s wireless and features a rechargeable battery that will power your keyboard for about a month or more between charges.¹ It pairs automatically with your Mac, so you can get to work straightaway. And it includes a woven USB-C to Lightning Cable that lets you pair and charge by connecting to a USB-C port on your Mac",
         count: 1,
-        totalPrice: 250
+        totalPrice: 250,
+        wishlist: false,
+        cart: false
     },
     {
         id: 22,
@@ -288,7 +332,9 @@ const allProducts = [
         price: 125,
         description: "Magic Mouse is wireless and rechargeable, with an optimised foot design that lets it glide smoothly across your desk. The Multi-Touch surface allows you to perform simple gestures such as swiping between web pages and scrolling through documents. The rechargeable battery will power your Magic Mouse for about a month or more between charges. It’s ready to go straight out of the box and pairs automatically with your Mac, and it includes a woven USB-C to Lightning Cable that lets you pair and charge by connecting to a USB-C port on your Mac",
         count: 1,
-        totalPrice: 125
+        totalPrice: 125,
+        wishlist: false,
+        cart: false
     },
     {
         id: 23,
@@ -297,7 +343,9 @@ const allProducts = [
         price: 100,
         description: "The USB-C Digital AV Multiport Adapter lets you connect your USB-C–enabled Mac or iPad to an HDMI display, while also connecting a standard USB device and a USB-C charging cable. This adapter allows you to mirror your Mac or iPad display to your HDMI-enabled TV or display",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     },
     {
         id: 24,
@@ -306,7 +354,9 @@ const allProducts = [
         price: 50,
         description: "The Belkin iPhone Mount (Magsafe Compatible) for Mac Desktops utilises the new Continuity Camera features in the latest version of macOS Ventura. You can easily mount your MagSafe-compatible iPhone securely to your Mac desktop or display with this durable mount for FaceTime, capturing content, video conferencing and more. The magnetic attachment allows for easy, seamless, hands-free camera streaming. Easily rotate your iPhone to portrait or landscape and adjust viewing angles from vertical to 25 degrees downwards with the tilting hinge.",
         count: 1,
-        totalPrice: 50
+        totalPrice: 50,
+        wishlist: false,
+        cart: false
     },
     {
         id: 25,
@@ -315,7 +365,9 @@ const allProducts = [
         price: 85,
         description: "The 35W Dual USB‑C Port Power Adapter allows you to charge two devices at the same time, whether you’re at home, in the office or on the go. Apple recommends using it with MacBook Air. You can also use it with iPhone, iPad, Apple Watch and AirPods. Pair this power adapter with the World Travel Adapter Kit to charge in other regions around the world. Charging cable sold separately",
         count: 1,
-        totalPrice: 85
+        totalPrice: 85,
+        wishlist: false,
+        cart: false
     },
     {
         id: 26,
@@ -324,7 +376,9 @@ const allProducts = [
         price: 75,
         description: "This 2-metre charge cable features a magnetic MagSafe 3 connector that helps guide the plug to the charging port of your Mac notebook. Pair it with a compatible USB-C power adapter to conveniently charge your notebook from a power point and take advantage of fast-charging capabilities. The magnetic connection is strong enough to resist most unintended disconnects, but if someone trips on the cable, it releases so your Mac notebook stays put. An LED turns amber when the battery is charging and green when it’s fully charged. Made with a woven design for long-lasting durability",
         count: 1,
-        totalPrice: 75
+        totalPrice: 75,
+        wishlist: false,
+        cart: false
     },
     {
         id: 27,
@@ -333,7 +387,9 @@ const allProducts = [
         price: 100,
         description: "The rugged Alpine Loop is made from two textile layers woven together into one continuous piece without stitching. High-strength yarns reinforce the top loops, and the corrosion-resistant titanium G-hook slides easily into the loops for secure fit. Material: Polyester",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     },
     {
         id: 28,
@@ -342,7 +398,9 @@ const allProducts = [
         price: 100,
         description: "The rugged Alpine Loop is made from two textile layers woven together into one continuous piece without stitching. High-strength yarns reinforce the top loops, and the corrosion-resistant titanium G-hook slides easily into the loops for secure fit.  Material: Polyester",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     },
     {
         id: 29,
@@ -351,7 +409,9 @@ const allProducts = [
         price: 100,
         description: "The thin, lightweight Trail Loop is made from a nylon weave creating a soft strap with increased elasticity for a comfortable fit. The strap is infinitely adjustable with a convenient pull tab for quick adjustments on the go. Material: Nylon",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     },
     {
         id: 30,
@@ -360,7 +420,9 @@ const allProducts = [
         price: 100,
         description: "The rugged Alpine Loop is made from two textile layers woven together into one continuous piece without stitching. High-strength yarns reinforce the top loops, and the corrosion-resistant titanium G-hook slides easily into the loops for secure fit. Material: Polyester",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     },
     {
         id: 31,
@@ -369,7 +431,9 @@ const allProducts = [
         price: 100,
         description: "The thin, lightweight Trail Loop is made from a nylon weave creating a soft strap with increased elasticity for a comfortable fit. The strap is infinitely adjustable with a convenient pull tab for quick adjustments on the go. Material: Nylon",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     },
     {
         id: 32,
@@ -378,7 +442,9 @@ const allProducts = [
         price: 100,
         description: "The thin, lightweight Trail Loop is made from a nylon weave creating a soft strap with increased elasticity for a comfortable fit. The strap is infinitely adjustable with a convenient pull tab for quick adjustments on the go. Material: Nylon",
         count: 1,
-        totalPrice: 100
+        totalPrice: 100,
+        wishlist: false,
+        cart: false
     }
 ];
 

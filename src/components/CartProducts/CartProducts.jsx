@@ -11,11 +11,11 @@ const CartProducts = ({id, img, count, title, totalPrice, deleteFunction, increa
             </div>
             <div className="product__title">{title}</div>
             <div className="product__count">
-                <Count count={count} id={id} increaseFunction={increaseFunction} decreaseFunction={decreaseFunction} changeValue={changeValue} />
+                <Count count={count} id={id} increaseFunction={() => increaseFunction(id, 'count')} decreaseFunction={() => decreaseFunction(id, 'count')} changeValue={changeValue} />
             </div>
             <div className="product__price">{priceFormatter.format(totalPrice)} $</div>
             <div className="product__controls">
-                <ButtonDelete deleteFunction={deleteFunction} id={id}/>
+                <ButtonDelete deleteFunction={() => deleteFunction(id, 'cart')} id={id}/>
             </div>
         </section>
     );

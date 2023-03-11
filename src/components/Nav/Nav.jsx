@@ -6,6 +6,7 @@ import './style.css';
 import open from './../../images/icons/open.svg';
 import close from './../../images/icons/close.svg';
 import cart from './../../images/icons/cart.svg';
+import heart from './../../images/icons/heart.svg';
 
 const Nav = ({total}) => {
     
@@ -52,6 +53,9 @@ const Nav = ({total}) => {
                         <img onClick={openNav} src={open} alt="open" className="open-button" />
                         <img src={close} alt="close" className={openButton ? 'close-button' : 'close-button none'} onClick={closeNav}/>  
                         <div className="nav-items__cart">
+                            <NavLink to="/wishlist">
+                                <img src={heart} alt="wishlist" />
+                            </NavLink>
                             <NavLink to="/cart">
                                 <img src={cart} alt="cart" />
                                 <p className="nav-items__cart-title">{total}</p>
@@ -80,7 +84,6 @@ const Nav = ({total}) => {
                         <NavLink to="/" onClick={togglestore}>Financing</NavLink>
                     </div>  
                 </div>
-
             </div>
         </nav>
     );

@@ -4,7 +4,7 @@ import MyInput from '../../components/UI/input/MyInput';
 
 import './style.css';
 
-const Products = ({addProductToCart, search, setSearch, selectedSort, sortProducts, searchedAndSortedProducts, myUkrainianArray}) => {
+const Products = ({addProductToCart, items, setItems, search, setSearch, selectedSort, sortProducts, searchedAndSortedProducts, myUkrainianArray}) => {
     return (
         <>
             <header>
@@ -32,7 +32,10 @@ const Products = ({addProductToCart, search, setSearch, selectedSort, sortProduc
                                 id={item.id} 
                                 sale={item.sale}
                                 saleColor={item.saleColor}
+                                wishlist={item.wishlist}
                                 
+                                setItems={setItems}
+                                items={items}
                                 addProductToCart={addProductToCart}
                                 myUkrainianArray={myUkrainianArray}
                             />
