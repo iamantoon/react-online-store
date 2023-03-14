@@ -1,5 +1,9 @@
 import {useState} from "react";
 import {useParams} from "react-router-dom";
+
+import {useDispatch} from 'react-redux';
+import { addToProductCart } from "../../store/storeSlice";
+
 import MyModal from "./../../components/UI/modal/MyModal";
 import MyInput from "./../../components/UI/input/MyInput";
 
@@ -14,7 +18,8 @@ import googlepay from "./../../images/icons/payment-icons/GooglePay.svg";
 import paypal from "./../../images/icons/payment-icons/PayPal.svg";
 import amazonpay from "./../../images/icons/payment-icons/AmazonPay.svg";
 
-const Accessory = ({addProductToCart, myUkrainianArray}) => {
+const Accessory = ({myUkrainianArray}) => {
+    const dispatch = useDispatch();
 
     const {id} = useParams();
     const accessory = allProducts[id];
@@ -44,7 +49,7 @@ const Accessory = ({addProductToCart, myUkrainianArray}) => {
                         </h3>
                         <p style={textColor} className="product-section__details">{accessory.description}</p>
                         <div className="product-section__button">
-                            <button onClick={() => addProductToCart(id)} className="add-to-cart-button">Add to cart</button>
+                            <button onClick={() => dispatch(addToProductCart({id}))} className="add-to-cart-button">Add to cart</button>
                             <button onClick={() => setModal(true)} className="buy-button">Buy</button>
                         </div>
                         <MyModal visible={modal} setVisible={setModal}>

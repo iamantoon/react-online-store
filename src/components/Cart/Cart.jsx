@@ -1,4 +1,7 @@
 import {useState, useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+
+import {sortProducts, deleteProduct} from './../../store/storeSlice';
 
 import Title from './../Title/Title';
 import CartHeader from './../CartHeader/CartHeader';
@@ -16,9 +19,16 @@ import googlepay from './../../images/icons/payment-icons/GooglePay.svg';
 import paypal from './../../images/icons/payment-icons/PayPal.svg';
 import amazonpay from './../../images/icons/payment-icons/AmazonPay.svg';
 
-const Cart = ({items, setItems}) => {  
+const Cart = () => {  
+    const items = useSelector(state => state.products.products);
+    const dispatch = useDispatch();
 
     const [selectedSort, setSelectedSort] = useState('');
+
+    const sortProductsBy = (sort) => {
+        setSelectedSort(sort);
+        dispatch(sortProducts({sort}));
+    }
 
     const [total, setTotal] = useState({
         count: items.reduce((previous, current) => previous + current.count, 0),
@@ -32,107 +42,43 @@ const Cart = ({items, setItems}) => {
         })
     }, [items])
 
-    const deleteFunction = (id, cart) => {
-        setItems(prevItems => {
-            const updatedList = [...prevItems];
-            const updatedElement = updatedList[id];
-            updatedElement[cart] = false;
-            return updatedList;
-        });
-    }
-
     const increaseFunction = (id, count) => {
-        setItems(prevItems => {
-            const updatedArray = [...prevItems];
-            const updatedElement = updatedArray[id];
-            updatedElement[count] = updatedElement[count] + 1;
-            updatedElement.totalPrice = updatedElement[count] * updatedElement.price;
-            return updatedArray;
-        });
+        // setItems(prevItems => {
+        //     const updatedArray = [...prevItems];
+        //     const updatedElement = updatedArray[id];
+        //     updatedElement[count] = updatedElement[count] + 1;
+        //     updatedElement.totalPrice = updatedElement[count] * updatedElement.price;
+        //     return updatedArray;
+        // });
     }
 
     const decreaseFunction = (id, count) => {
-        setItems(prevItems => {
-            const updatedArray = [...prevItems];
-            const updatedElement = updatedArray[id];
-            if (updatedElement[count] < 2) {
-                updatedElement.cart = false;
-            } else {
-                updatedElement.count = updatedElement[count] - 1;
-                updatedElement.totalPrice = updatedElement[count] * updatedElement.price;
-            }
+        // setItems(prevItems => {
+        //     const updatedArray = [...prevItems];
+        //     const updatedElement = updatedArray[id];
+        //     if (updatedElement[count] < 2) {
+        //         updatedElement.cart = false;
+        //     } else {
+        //         updatedElement.count = updatedElement[count] - 1;
+        //         updatedElement.totalPrice = updatedElement[count] * updatedElement.price;
+        //     }
             
-            return updatedArray;
-        });
+        //     return updatedArray;
+        // });
     }
-
-    // const increaseFunction = (id) => {
-    //     setProductCartArray(products => {
-    //         return products.map((product) => {
-    //             if (product.id === id) {
-    //                 return {
-    //                     ...product,
-    //                     count: product.count + 1,
-    //                     totalPrice: (product.count + 1) * product.price
-    //                 }
-    //             }
-    //             return product;
-    //         });
-    //     });
-    // }
-
-    // const decreaseFunction = (id) => {
-    //     setProductCartArray(products => {
-    //         return products.map((product) => {
-    //             if (product.id === id) {
-    //                 return {
-    //                     ...product,
-    //                     count: product.count - 1 > 1 ? product.count - 1 : 1,
-    //                     totalPrice: (product.count - 1 > 1 ? product.count - 1 : 1) * product.price
-    //                 }
-    //             }
-    //             return product;
-    //         });
-    //     });
-    // }
-
-    // const changeValue = (id, value) => {
-    //     setProductCartArray(products => {
-    //         return products.map((product) => {
-    //             if (product.id === id) {
-    //                 return {
-    //                     ...product,
-    //                     count: value,
-    //                     totalPrice: value * product.price
-    //                 }
-    //             }
-    //             return product;
-    //         });
-    //     });
-    // }
 
     const changeValue = (id, value) => {
-        setItems(prevItems => {
-            const updatedArray = [...prevItems];
-            const updatedElement = updatedArray[id];
-            if (value <= 0) {
-                updatedElement.cart = false;
-            } else {
-                updatedElement.count = value;
-                updatedElement.totalPrice = value * updatedElement.price;
-            }
-            return updatedArray;
-        });
-    }
-
-    const sortProducts = (sort) => {
-        setSelectedSort(sort);
-        
-        if (typeof items[0][sort] === 'string') {
-            setItems([...items].sort((a, b) => a[sort].localeCompare(b[sort])));
-        } else {
-            setItems([...items].sort((a, b) => a[sort] - b[sort]));
-        }
+        // setItems(prevItems => {
+        //     const updatedArray = [...prevItems];
+        //     const updatedElement = updatedArray[id];
+        //     if (value <= 0) {
+        //         updatedElement.cart = false;
+        //     } else {
+        //         updatedElement.count = value;
+        //         updatedElement.totalPrice = value * updatedElement.price;
+        //     }
+        //     return updatedArray;
+        // });
     }
 
     const [modal, setModal] = useState(false);
@@ -233,12 +179,11 @@ const Cart = ({items, setItems}) => {
                 </header>
                 <div className="cart-container">
                     {counter !== 0 && 
-                    <MySelect value={selectedSort} onChange={sortProducts} options={[
-                        {value: 'price', name: 'Sort by price'},
-                        {value: 'totalPrice', name: 'Sort by total price'},
-                        {value: 'title', name: 'Sort by name'},
-                        {value: 'id', name: 'Sort by default'}
-                    ]} defaultValue='Sort by' /> }
+                    <MySelect value={selectedSort} onChange={sortProductsBy} options={[
+                        {value: 'price-ascending', name: 'Sort by price - ascending'},
+                        {value: 'price-descending', name: 'Sort by price - descending'},
+                        {value: 'title', name: 'Sort by name'}
+                    ]} defaultValue="Sort by" /> }
                 </div>
                 <div className="section-cart__body">
                     <div className="cart-container">
@@ -256,7 +201,6 @@ const Cart = ({items, setItems}) => {
                                                 count={product.count}
                                                 totalPrice={product.totalPrice}
 
-                                                deleteFunction={deleteFunction}
                                                 increaseFunction={increaseFunction}
                                                 decreaseFunction={decreaseFunction}
                                                 changeValue={changeValue}

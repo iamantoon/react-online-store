@@ -1,5 +1,7 @@
-import {useState, useMemo, useEffect} from 'react';
+import {useState, useMemo} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import {useSelector} from 'react-redux';
 
 import Home from './pages/Home/Home';
 import Products from './pages/Products/Products';
@@ -18,51 +20,18 @@ import Wishlist from './pages/Wishlist/Wishlist';
 import Nav from './components/Nav/Nav';
 import Footer from './components/footer/Footer';
 import ScrollToTop from './utils/scrollToTop.js';
-import allProducts from './helpers/allProducts';
 
 import './style/main.css';
 import './style/reset.css';
 import './style/cart.css';
 
 function App() {
-    const [items, setItems] = useState(allProducts);
-    const [selectedSort, setSelectedSort] = useState('');
     const [search, setSearch] = useState('');
-    const [productCartArray, setProductCartArray] = useState([]);
 
-    const sortProducts = (sort) => {
-        setSelectedSort(sort);
-        if (typeof items[0][sort] === 'string') {
-            setItems([...items].sort((a, b) => a[sort].localeCompare(b[sort])));
-        } else if (typeof items[0][sort] === 'number') {
-            setItems([...items].sort((a, b) => a[sort] - b[sort]));
-        } else if (sort === 'price-ascending') {
-            setItems([...items].sort((a, b) => a['price'] - b['price']));
-        } else if (sort === 'price-descending') {
-            setItems([...items].sort((a, b) => b['price'] - a ['price']));
-        }
-    }
-
-    const addProductToCart = (id, cart) => {
-        setItems(prevItems => {
-            const cartItems = [...prevItems];
-            const cartElement = cartItems[id];
-            cartElement[cart] = !cartElement[cart];
-            return cartItems;
-        });
-    }
-
-    // const addProductToCart = (id) => {
-    //     setProductCartArray((products) => {
-    //         return [ 
-    //             ...products,
-    //             items[id]
-    //         ];
-    //     });
-    // }
+    const items = useSelector(state => state.products.products);
 
     const searchedAndSortedProducts = useMemo(() => {
-        return items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
+        // return items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
     });
 
     let myUkrainianArray = [];
@@ -96,33 +65,21 @@ function App() {
                 <ScrollToTop />
                 <Nav total={items.length} />
                 <Routes>  
-                    <Route path="/" element={<Home addProductToCart={addProductToCart} />} />
-                    <Route path="/products" element={<Products 
-                        // productCartArray={productCartArray}
-                        // setProductCartArray={setProductCartArray} 
-                        addProductToCart={addProductToCart} 
-                        items={items}
-                        setItems={setItems}
+                    <Route path="/" element={<Home /> } />
+                    <Route path="/products" element={<Products   
                         search={search}
                         setSearch={setSearch}
-                        selectedSort={selectedSort}
-                        sortProducts={sortProducts}
                         searchedAndSortedProducts={searchedAndSortedProducts}
                         myUkrainianArray={myUkrainianArray}
                     />} />
-                    <Route path="/:name" element={<Store items={items} myUkrainianArray={myUkrainianArray} />} />
+                    <Route path="/:name" element={<Store myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/accessories/:name" element={<Accessories myUkrainianArray={myUkrainianArray} />} />
-                    <Route path="/accessory/:id" element={<Accessory addProductToCart={addProductToCart} myUkrainianArray={myUkrainianArray} />} />
+                    <Route path="/accessory/:id" element={<Accessory myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/cart" element={<Cart 
-                                                    items={items}
-                                                    setItems={setItems}
-                                                    // productCartArray={productCartArray} 
-                                                    // setProductCartArray={setProductCartArray}
-                                                />} /> 
+                    <Route path="/cart" element={<Cart />} /> 
                     <Route path="/news/:id" element={<NewsPage />} />     
-                    <Route path="/product/:id" element={<Product addProductToCart={addProductToCart} myUkrainianArray={myUkrainianArray} />} />
-                    <Route path="/wishlist" element={<Wishlist items={items} setItems={setItems} addProductToCart={addProductToCart} myUkrainianArray={myUkrainianArray}/>} />
+                    <Route path="/product/:id" element={<Product myUkrainianArray={myUkrainianArray} />} />
+                    <Route path="/wishlist" element={<Wishlist myUkrainianArray={myUkrainianArray} />} />
                     <Route path="/career" element={<Career />} />
                     <Route path="/contacts" element={<Contacts />} />
                     <Route path="/question" element={<Question />} />

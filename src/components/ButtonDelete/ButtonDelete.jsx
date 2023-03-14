@@ -1,8 +1,13 @@
+import {useDispatch} from 'react-redux';
+import {deleteProduct} from './../../store/storeSlice';
+
 import deleteBtn from './../../images/icons/delete.svg';
 
-const ButtonDelete = ({deleteFunction, id}) => {
+const ButtonDelete = ({id}) => {
+    const dispatch = useDispatch();
+
     return (
-        <button onClick={() => deleteFunction(id)}>
+        <button onClick={() => dispatch(deleteProduct({id}))}>
             <img src={deleteBtn} alt="delete" />
         </button>
     );

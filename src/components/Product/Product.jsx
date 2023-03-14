@@ -1,7 +1,11 @@
+import {useDispatch} from 'react-redux';
+import {addToProductCart} from './../../store/storeSlice';
+
 import {NavLink} from 'react-router-dom';
 import usa from "./../../images/icons/unitedstates.svg";
 
-const Product = ({img, title, price, id, sale, saleColor, addProductToCart, items, setItems, wishlist}) => {
+const Product = ({img, title, price, id, sale, saleColor}) => {
+    const dispatch = useDispatch();
 
     const priceColor = {
         color: saleColor,
@@ -9,19 +13,19 @@ const Product = ({img, title, price, id, sale, saleColor, addProductToCart, item
     };
 
     const updateWishlist = (id, wishlist) => {
-        setItems(prevItems => {
-            // копируем массив, чтобы не изменять его напрямую
-            const updatedItems = [...prevItems];
+        // setItems(prevItems => {
+        //     копируем массив, чтобы не изменять его напрямую
+        //     const updatedItems = [...prevItems];
 
-            // находим объект, который нужно изменить
-            const itemToUpdate = updatedItems[id];
+        //     находим объект, который нужно изменить
+        //     const itemToUpdate = updatedItems[id];
 
-            // изменяем поле wishlist на новое значение
-            itemToUpdate[wishlist] = !itemToUpdate[wishlist];
+        //     изменяем поле wishlist на новое значение
+        //     itemToUpdate[wishlist] = !itemToUpdate[wishlist];
 
-            // возвращаем обновленный массив
-            return updatedItems;
-          });
+        //     возвращаем обновленный массив
+        //     return updatedItems;
+        //   });
     }
 
     return (
@@ -61,7 +65,7 @@ const Product = ({img, title, price, id, sale, saleColor, addProductToCart, item
                         </div>
                     }
                     <div>
-                        <button onClick={() => addProductToCart(id, 'cart')}>
+                        <button onClick={() => dispatch(addToProductCart({id}))}>
                             <svg className="icon__cart" width="24" height="24">
                                 <use href="#icon-cart"></use>
                             </svg>

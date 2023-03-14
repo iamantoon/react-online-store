@@ -1,9 +1,12 @@
 import {useParams} from "react-router-dom";
+import {useSelector} from 'react-redux';
+
 import StoreItem from "../../components/StoreItem/StoreItem";
 import store from "../../helpers/store";
 import "./main.css";
 
-const Store = ({items, myUkrainianArray}) => {
+const Store = ({myUkrainianArray}) => {
+    const items = useSelector(state => state.products.products);
 
     const {name} = useParams();
 

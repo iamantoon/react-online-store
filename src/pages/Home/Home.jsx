@@ -13,7 +13,7 @@ import servicesList from '../../helpers/servicesList';
 import home from './../../images/title.png';
 import "./style.css";
 
-const Home = ({addProductToCart, myUkrainianArray}) => {
+const Home = ({myUkrainianArray}) => {
 
     const [products, setProducts] = useState(allProducts);
     const [news, setNews] = useState(newsList);
@@ -50,7 +50,6 @@ const Home = ({addProductToCart, myUkrainianArray}) => {
                                             sale={product.sale}
                                             saleColor={product.saleColor}
 
-                                            addProductToCart={addProductToCart}
                                             myUkrainianArray={myUkrainianArray}
                                         />
                             }

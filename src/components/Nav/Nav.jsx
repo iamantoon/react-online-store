@@ -58,7 +58,7 @@ const Nav = ({total}) => {
                             </NavLink>
                             <NavLink to="/cart">
                                 <img src={cart} alt="cart" />
-                                <p className="nav-items__cart-title">{total}</p>
+                                {/* <p className="nav-items__cart-title">{total}</p> */}
                             </NavLink>
                         </div>
                     </div>

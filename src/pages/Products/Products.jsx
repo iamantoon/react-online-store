@@ -1,10 +1,24 @@
+import {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {sortProducts} from './../../store/storeSlice';
+
 import Product from '../../components/Product/Product';
 import MySelect from '../../components/UI/select/MySelect';
 import MyInput from '../../components/UI/input/MyInput';
 
 import './style.css';
 
-const Products = ({addProductToCart, items, setItems, search, setSearch, selectedSort, sortProducts, searchedAndSortedProducts, myUkrainianArray}) => {
+const Products = ({search, setSearch, myUkrainianArray}) => {
+    const [selectedSort, setSelectedSort] = useState('');
+
+    const items = useSelector(state => state.products.products);
+    const dispatch = useDispatch();
+
+    const sortProductsBy = (sort) => {
+        setSelectedSort(sort);
+        dispatch(sortProducts({sort}));
+    }
+
     return (
         <>
             <header>
@@ -14,7 +28,7 @@ const Products = ({addProductToCart, items, setItems, search, setSearch, selecte
             </header>
             <section>
                 <div className="container">
-                    <MySelect value={selectedSort} onChange={sortProducts} options={[
+                    <MySelect value={selectedSort} onChange={sortProductsBy} options={[
                         {value: 'price-ascending', name: 'Sort by price - ascending'},
                         {value: 'price-descending', name: 'Sort by price - descending'},
                         {value: 'title', name: 'Sort by name'},
@@ -22,7 +36,7 @@ const Products = ({addProductToCart, items, setItems, search, setSearch, selecte
                     ]} defaultValue="Sort by" />
                     <MyInput type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search by name"  />
                     <ul className="products">
-                        {searchedAndSortedProducts.map((item) => 
+                        {items.map((item) => 
                             <Product 
                                 key={item.id} 
                                 img={item.img} 
@@ -34,9 +48,6 @@ const Products = ({addProductToCart, items, setItems, search, setSearch, selecte
                                 saleColor={item.saleColor}
                                 wishlist={item.wishlist}
                                 
-                                setItems={setItems}
-                                items={items}
-                                addProductToCart={addProductToCart}
                                 myUkrainianArray={myUkrainianArray}
                             />
                         )}

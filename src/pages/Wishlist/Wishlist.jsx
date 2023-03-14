@@ -1,7 +1,10 @@
+import {useSelector} from 'react-redux';
+
 import Product from "./../../components/Product/Product";
 import "./main.css";
 
-const Wishlist = ({items, setItems, addProductToCart, myUkrainianArray}) => {
+const Wishlist = ({myUkrainianArray}) => {
+    const items = useSelector(state => state.products.products);
 
     let count = 0;
     for (let i = 0; i < items.length; i++) {
@@ -36,10 +39,7 @@ const Wishlist = ({items, setItems, addProductToCart, myUkrainianArray}) => {
                                     price={item.price}
                                     sale={item.sale}
                                     saleColor={item.saleColor}
-                                    setItems={setItems}
-                                    items={items}
-
-                                    addProductToCart={addProductToCart}
+                
                                     myUkrainianArray={myUkrainianArray}
                                 />
                     } 
