@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {sortProducts, deleteProduct} from './../../store/storeSlice';
+import {sortProducts} from './../../store/storeSlice';
 
 import Title from './../Title/Title';
 import CartHeader from './../CartHeader/CartHeader';
@@ -28,57 +28,6 @@ const Cart = () => {
     const sortProductsBy = (sort) => {
         setSelectedSort(sort);
         dispatch(sortProducts({sort}));
-    }
-
-    const [total, setTotal] = useState({
-        count: items.reduce((previous, current) => previous + current.count, 0),
-        price: items.reduce((previous, current) => previous + current.totalPrice, 0)
-    });
-
-    useEffect(() => {
-        setTotal({
-            count: items.reduce((previous, current) => previous + current.count, 0),
-            price: items.reduce((previous, current) => previous + current.totalPrice, 0)
-        })
-    }, [items])
-
-    const increaseFunction = (id, count) => {
-        // setItems(prevItems => {
-        //     const updatedArray = [...prevItems];
-        //     const updatedElement = updatedArray[id];
-        //     updatedElement[count] = updatedElement[count] + 1;
-        //     updatedElement.totalPrice = updatedElement[count] * updatedElement.price;
-        //     return updatedArray;
-        // });
-    }
-
-    const decreaseFunction = (id, count) => {
-        // setItems(prevItems => {
-        //     const updatedArray = [...prevItems];
-        //     const updatedElement = updatedArray[id];
-        //     if (updatedElement[count] < 2) {
-        //         updatedElement.cart = false;
-        //     } else {
-        //         updatedElement.count = updatedElement[count] - 1;
-        //         updatedElement.totalPrice = updatedElement[count] * updatedElement.price;
-        //     }
-            
-        //     return updatedArray;
-        // });
-    }
-
-    const changeValue = (id, value) => {
-        // setItems(prevItems => {
-        //     const updatedArray = [...prevItems];
-        //     const updatedElement = updatedArray[id];
-        //     if (value <= 0) {
-        //         updatedElement.cart = false;
-        //     } else {
-        //         updatedElement.count = value;
-        //         updatedElement.totalPrice = value * updatedElement.price;
-        //     }
-        //     return updatedArray;
-        // });
     }
 
     const [modal, setModal] = useState(false);
@@ -200,18 +149,14 @@ const Cart = () => {
                                                 title={product.title}
                                                 count={product.count}
                                                 totalPrice={product.totalPrice}
-
-                                                increaseFunction={increaseFunction}
-                                                decreaseFunction={decreaseFunction}
-                                                changeValue={changeValue}
                                             />
                                 }
                             }) : <h1 style={{color: 'rgb(187, 38, 73)', fontSize: 45, textAlign: 'center', margin: '25px 0', fontWeight: 600}}>Your cart is empty</h1>}
 
-                        {counter !== 0 && <CartFooter count={total.count} price={total.price} />}
+                        {counter !== 0 && <CartFooter />}
 
                         {counter !== 0 &&
-                        <ButtonOrder onClick={() => setModal(true)} count={total.count} price={total.price} />
+                        <ButtonOrder onClick={() => setModal(true)} />
                         }
 
                         <MyModal visible={modal} setVisible={setModal}>

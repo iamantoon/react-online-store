@@ -1,17 +1,22 @@
+import {useDispatch} from 'react-redux';
+import {changeValueByInput, increaseCount, decreaseCount} from './../../store/storeSlice';
+
 import up from './../../images/icons/up.svg';
 import down from './../../images/icons/down.svg';
 
-const Count = ({count, id, increaseFunction, decreaseFunction, changeValue}) => {
+const Count = ({count, id}) => {
+    const dispatch = useDispatch();
+
     return (
         <div className="count">
             <div className="count__box">
-                <input value={count} onChange={(e) => changeValue(id, +e.target.value)} className="count__input" type="number" min="1" max="100" />
+                <input value={count} onChange={(e) => dispatch(changeValueByInput({id: id, value: +e.target.value}))} className="count__input" type="number" min="1" max="100" />
             </div>
             <div className="count__controls">
-                <button className="product-controls" onClick={() => increaseFunction(id)}>
+                <button className="product-controls" onClick={() => dispatch(increaseCount({id}))}>
                     <img src={up} alt="increase" />
                 </button>
-                <button className="product-controls" onClick={() => decreaseFunction(id)}>
+                <button className="product-controls" onClick={() => dispatch(decreaseCount({id}))}>
                     <img src={down} alt="decrease" />
                 </button>
             </div>

@@ -1,5 +1,5 @@
 import {useDispatch} from 'react-redux';
-import {addToProductCart} from './../../store/storeSlice';
+import {addToProductCart, addToWishlist} from './../../store/storeSlice';
 
 import {NavLink} from 'react-router-dom';
 import usa from "./../../images/icons/unitedstates.svg";
@@ -11,22 +11,6 @@ const Product = ({img, title, price, id, sale, saleColor}) => {
         color: saleColor,
         fontSize: 17
     };
-
-    const updateWishlist = (id, wishlist) => {
-        // setItems(prevItems => {
-        //     копируем массив, чтобы не изменять его напрямую
-        //     const updatedItems = [...prevItems];
-
-        //     находим объект, который нужно изменить
-        //     const itemToUpdate = updatedItems[id];
-
-        //     изменяем поле wishlist на новое значение
-        //     itemToUpdate[wishlist] = !itemToUpdate[wishlist];
-
-        //     возвращаем обновленный массив
-        //     return updatedItems;
-        //   });
-    }
 
     return (
         <>
@@ -70,7 +54,7 @@ const Product = ({img, title, price, id, sale, saleColor}) => {
                                 <use href="#icon-cart"></use>
                             </svg>
                         </button>
-                        <button onClick={() => updateWishlist(id, 'wishlist')}>
+                        <button onClick={() => dispatch(addToWishlist({id}))}>
                             <svg className="icon__heart" width="24" height="24">
                                 <use href="#icon-heart"></use>
                             </svg>
