@@ -8,7 +8,7 @@ import MyInput from '../../components/UI/input/MyInput';
 
 import './style.css';
 
-const Products = ({search, setSearch, myUkrainianArray}) => {
+const Products = ({search, setSearch, searchedAndSortedProducts, myUkrainianArray}) => {
     const [selectedSort, setSelectedSort] = useState('');
 
     const items = useSelector(state => state.products.products);
@@ -36,7 +36,7 @@ const Products = ({search, setSearch, myUkrainianArray}) => {
                     ]} defaultValue="Sort by" />
                     <MyInput type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Search by name"  />
                     <ul className="products">
-                        {items.map((item) => 
+                        {searchedAndSortedProducts.map((item) => 
                             <Product 
                                 key={item.id} 
                                 img={item.img} 

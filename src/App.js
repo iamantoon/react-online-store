@@ -31,7 +31,7 @@ function App() {
     const items = useSelector(state => state.products.products);
 
     const searchedAndSortedProducts = useMemo(() => {
-        // return items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
+        return items.filter(item => item.title.toLowerCase().includes(search.toLowerCase()));
     });
 
     let myUkrainianArray = [];

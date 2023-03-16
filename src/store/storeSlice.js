@@ -38,8 +38,12 @@ const storeSlice = createSlice({
         },
         decreaseCount (state, action) {
             const decreasedValue = state.products.find(product => product.id === action.payload.id);
-            decreasedValue.count = decreasedValue.count - 1;
-            decreasedValue.totalPrice = decreasedValue.count * decreasedValue.price;
+            if (decreasedValue.count > 1) {
+                decreasedValue.count = decreasedValue.count - 1;
+                decreasedValue.totalPrice = decreasedValue.count * decreasedValue.price;
+            } else {
+                decreasedValue.cart = false;
+            }
         },
         addToWishlist (state, action) {
             const wishedProduct = state.products.find(product => product.id === action.payload.id);
